@@ -1,0 +1,356 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="NoTimeReportedSummaryReport" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_dt_WeeklyDetails" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_dicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_boolNoDataNoTimeReport" Type="InArgument(x:Boolean)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1100,3161</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>NoTimeReportedSummaryReport_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="This flow will creates monthly summary report for NoTimeReported and send out email if it is last wednesday of the month." DisplayName="Sequence No Time Reported Summary Report" sap:VirtualizedContainerService.HintSize="672,3056" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch No Time Reported Summary Report" sap:VirtualizedContainerService.HintSize="610,2903" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <Sequence sap2010:Annotation.AnnotationText="This flow will creates monthly summary report for NoTimeReported and send out email if it is last wednesday of the month." DisplayName="No Time Reported Summary Report" sap:VirtualizedContainerService.HintSize="572,2675" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:Boolean" Name="boolReportCreatedNow" />
+            <Variable x:TypeArguments="sd:DataTable" Name="dt_WeeklyDetails" />
+            <Variable x:TypeArguments="s:DateTime" Name="dateLastWedOfMonth" />
+            <Variable x:TypeArguments="x:String" Name="strFileName" />
+            <Variable x:TypeArguments="x:Boolean" Name="boolLastRun" />
+            <Variable x:TypeArguments="x:String" Name="strSummaryReportPath" />
+            <Variable x:TypeArguments="s:DateTime" Name="dateToday" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log No Time Reported Summary Start" sap:VirtualizedContainerService.HintSize="510,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;No time reported summary report creation has started&quot;]" />
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will gets the last wednesday" DisplayName="Get Last Wednesday" sap:VirtualizedContainerService.HintSize="510,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Process\SummaryReport\GetLastWednesdayOfMonth.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <OutArgument x:TypeArguments="s:DateTime" x:Key="out_DateLastWedOfMonth">[dateLastWedOfMonth]</OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+          <Assign DisplayName="Assign Filename No Time Reported" sap:VirtualizedContainerService.HintSize="510,85" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[strFileName]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String" xml:space="preserve">[If(dateLastWedOfMonth.Day&lt;3,CStr(in_dicConfig("NoTimeReportedSummaryReportFileName")).replace("{currentMonth}",now.AddMonths(-1).ToString("MMMM")).replace("{year}",now.AddMonths(-1).Year.ToString),
+CStr(in_dicConfig("NoTimeReportedSummaryReportFileName")).replace("{currentMonth}",now.ToString("MMMM")).replace("{year}",now.Year.ToString))]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Check And Create No Time Reported Summary For Current Month" sap:VirtualizedContainerService.HintSize="510,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Process\SummaryReport\CheckAndCreateSummaryReport.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strFolderPath">[CStr(in_dicConfig("P003_090_TimesheetApprovals_SummaryFolder"))]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strFileName">[strFileName]</InArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_boolReportCreatedNow">[boolReportCreatedNow]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strReportTemplatePath">[cstr(in_dicConfig("NoTimeReportedSummaryReportTemplatePath"))]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_strDownloadedReportPath">[strSummaryReportPath]</OutArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[in_dicConfig]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <If Condition="[not(in_boolNoDataNoTimeReport)]" DisplayName="If No Data No Time" sap:VirtualizedContainerService.HintSize="510,1033" sap2010:WorkflowViewState.IdRef="If_2">
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="476,851" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:FilterDataTable sap2010:Annotation.AnnotationText="This will filter the required columns for the monthly summaru report" DataTable="[in_dt_WeeklyDetails]" DisplayName="Filter  Request Column From No Time Reported Weekly Report" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,94" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_WeeklyDetails]" SelectColumnsMode="Keep">
+                  <ui:FilterDataTable.Filters>
+                    <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                      <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
+                    </scg:List>
+                  </ui:FilterDataTable.Filters>
+                  <ui:FilterDataTable.SelectColumns>
+                    <scg:List x:TypeArguments="InArgument" Capacity="8">
+                      <InArgument x:TypeArguments="x:String">[cstr(in_dicConfig("EmpIDHeaderInNoTimeReportedWeeklyReport"))]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[cstr(in_dicConfig("WorkerHeaderInRPT00177"))]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[cstr(in_dicConfig("EmailheaderInRPT00177"))]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[cstr(in_dicConfig("ManagerHeaderInRPT00177"))]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[cstr(in_dicConfig("ManagerEmailHeaderInRPT00177"))]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[cstr(in_dicConfig("LocationHeaderInRPT00177"))]</InArgument>
+                    </scg:List>
+                  </ui:FilterDataTable.SelectColumns>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:FilterDataTable>
+                <Assign DisplayName="Remove Duplicate Rows No Time Reported" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_3">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="sd:DataTable">[dt_WeeklyDetails]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="sd:DataTable">[dt_WeeklyDetails.AsEnumerable().GroupBy(Function(x) x(cstr(in_dicConfig("EmpIDHeaderInNoTimeReportedWeeklyReport"))).ToString.Trim).Select(Function(y) y.First()).CopyToDataTable]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Convert to CST Data NoTime Reported" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_4">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="s:DateTime">[dateToday]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="s:DateTime">[TimeZoneInfo.ConvertTimeBySystemTimeZoneId(Now,timezoneinfo.Local.Id, "Central Standard Time")]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign Bool Last Run No Time Report" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_5">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Boolean">[boolLastRun]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Boolean">[if(now.Date=dateLastWedOfMonth.Date AndAlso dateToday.Hour&gt;=cint(cstr(in_dicConfig("P003_090_TimesheetApprovals_SummaryMailTime")).Split(":"c).First) andalso dateToday.Minute&gt;=cint(cstr(in_dicConfig("P003_090_TimesheetApprovals_SummaryMailTime")).Split(":"c).last),true,false)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Generate No Time Reported Report" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Process\SummaryReport\GenerateSummaryReport.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strSummaryReportPath">[strSummaryReportPath]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strSummaryReportSheetName">[cstr(in_dicConfig("NoTimeReportedSummaryReportSheetName"))]</InArgument>
+                    <InArgument x:TypeArguments="x:Boolean" x:Key="in_boolNotApproved">False</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strPrimaryColInWeeklyReport">[cstr(in_dicConfig("EmpIDHeaderInNoTimeReportedWeeklyReport"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strHeaderRowInSummaryReport">[cstr(in_dicConfig("HeaderRowNoInNoTimeReportedSummaryReport"))]</InArgument>
+                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_WeeklyReportDetails">[dt_WeeklyDetails]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strPrimaryColInSumReport">[cstr(in_dicConfig("EmpIDHeaderInNoTimeReportedSummaryReport"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strCounterColInSumReport">[cstr(in_dicConfig("CounterHeaderInNoTimeReportedSummaryReport"))]</InArgument>
+                    <InArgument x:TypeArguments="x:Boolean" x:Key="in_boolLastRunOfMonth">[boolLastRun]</InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[in_dicConfig]</InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Upload No Time Reported Summary Report To Sharepoint" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Process\Sharepoint\SaveFIleIntoSharepoint.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strLocalFilepath">[strSummaryReportPath]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strTenantID">[cstr(in_dicConfig("O365TenantIDAssetName"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationID">[cstr(in_dicConfig("O365ApplicationIDAssetName"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationSecretName">[cstr(in_dicConfig("O365ApplicationSecretAssetName"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strSharePtURL">[cstr(in_dicConfig("P003_090_TimesheetApprovals_SPURL"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strSharepointParentFolder">[if(strFileName.contains(now.AddMonths(-1).ToString("MMMM")),cstr(in_dicConfig("P003_090_TimesheetApprovals_SPRootFolder"))+"/"+Now.AddMonths(-1).ToString("yyyy")+"/"+Now.AddMonths(-1).ToString("MMMM"),cstr(in_dicConfig("P003_090_TimesheetApprovals_SPRootFolder"))+"/"+Now.ToString("yyyy")+"/"+Now.ToString("MMMM"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strOrchestratorFolderpath">[cstr(in_dicConfig("O365AssetsInOrchestratorFolder"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strException">[cstr(in_dicConfig("SaveFileSPSE"))]</InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
+          <Assign DisplayName="Convert to CST NoTime Reported" sap:VirtualizedContainerService.HintSize="510,81" sap2010:WorkflowViewState.IdRef="Assign_6">
+            <Assign.To>
+              <OutArgument x:TypeArguments="s:DateTime">[dateToday]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="s:DateTime">[TimeZoneInfo.ConvertTimeBySystemTimeZoneId(Now,timezoneinfo.Local.Id, "Central Standard Time")]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Assign Bool Last Run No Time Reported" sap:VirtualizedContainerService.HintSize="510,81" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[boolLastRun]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean">[if(now.Date=dateLastWedOfMonth.Date AndAlso dateToday.Hour&gt;=cint(cstr(in_dicConfig("P003_090_TimesheetApprovals_SummaryMailTime")).Split(":"c).First) andalso dateToday.Minute&gt;=cint(cstr(in_dicConfig("P003_090_TimesheetApprovals_SummaryMailTime")).Split(":"c).last),true,false)]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <If Condition="[(now.Date=dateLastWedOfMonth.Date AndAlso dateToday.Hour&gt;=cint(cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SummaryMailTime&quot;)).Split(&quot;:&quot;c).First) andalso dateToday.Minute&gt;=cint(cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SummaryMailTime&quot;)).Split(&quot;:&quot;c).last))]" DisplayName="If Last Wed Last Run" sap:VirtualizedContainerService.HintSize="510,383" sap2010:WorkflowViewState.IdRef="If_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="376,201" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Process\Send Email\SendMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Process\Send Email\SendMail.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="s:String[]" x:Key="in_StrToAddress">[cstr(in_dicConfig("P003_090_TimesheetApprovals_SummaryMailTo")).Split(";")]</InArgument>
+                    <InArgument x:TypeArguments="s:String[]" x:Key="in_StrCcAddress">[cstr(in_dicConfig("P003_090_TimesheetApprovals_SummaryMailCC")).Split(";")]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">[cstr(in_dicConfig("NoTimeReportedSummaryMailSubject")).Replace("{month}",now.ToString("MMMM")).Replace("{year}",now.ToString("yyyy"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">[CStr(in_dicConfig("P003_090_TimesheetApprovals_NoTimeReportedSummaryMailBody")).Replace("{month}",now.ToString("MMMM")).Replace("{year}",now.ToString("yyyy"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_StrAccount">[CStr(in_dicConfig("P003_090_TimesheetApprovals_MailAccount"))]</InArgument>
+                    <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListAttachmentPath">[new List(of string) from {strSummaryReportPath}]</InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[in_dicConfig]</InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap:VirtualizedContainerService.HintSize="376,229" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log No Run For Summary Report" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Summary report not run due to condition mis match&quot;]" />
+              </Sequence>
+            </If.Else>
+          </If>
+          <ui:LogMessage DisplayName="Log No Time Reported Summary End " sap:VirtualizedContainerService.HintSize="510,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;No time reported summary report has completed&quot;]" />
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="576,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="450,231" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message: SE No Time Report" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[in_dicConfig(&quot;NoTimeReportedReportSE&quot;).ToString+Environment.NewLine+&quot;Exception Source: &quot;+exception.Source+Environment.NewLine+&quot;Exception Message: &quot;+exception.Message]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:LogMessage>
+              <Rethrow DisplayName="Rethrow SE" sap:VirtualizedContainerService.HintSize="388,25" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>

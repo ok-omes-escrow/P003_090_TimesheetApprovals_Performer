@@ -1,0 +1,591 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "TransactionItem&StateMachine_1",
+        "SystemException&StateMachine_1",
+        "BusinessException&StateMachine_1",
+        "TransactionNumber&StateMachine_1",
+        "Config&StateMachine_1",
+        "RetryNumber&StateMachine_1",
+        "TransactionField2&StateMachine_1",
+        "TransactionField1&StateMachine_1",
+        "TransactionID&StateMachine_1",
+        "dt_TransactionData&StateMachine_1",
+        "ConsecutiveSystemExceptions&StateMachine_1",
+        "ShouldStop&Sequence_25"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_OrchestratorQueueName",
+        "in_OrchestratorQueueFolder"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/SummaryReport/NotSubmittedSummaryReport.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dateToday&Sequence_1",
+        "strSummaryReportPath&Sequence_1",
+        "boolReportCreatedNow&Sequence_1",
+        "dt_WeeklyDetails&Sequence_1",
+        "dateLastWedOfMonth&Sequence_1",
+        "strFileName&Sequence_1",
+        "boolLastRun&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_boolNoDataNotSubmitted",
+        "in_dicConfig",
+        "in_dt_WeeklyReport"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/SummaryReport/NotApprovedSummaryReport.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dateToday&Sequence_1",
+        "strSummaryReportPath&Sequence_1",
+        "boolReportCreatedNow&Sequence_1",
+        "dt_WeeklyDetails&Sequence_1",
+        "dateLastWedOfMonth&Sequence_1",
+        "strFileName&Sequence_1",
+        "boolLastRun&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_boolNoDataNotApproved",
+        "in_dicConfig",
+        "in_dt_WeeklyReport"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/SummaryReport/GenerateSummaryReport.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_SummaryReport&Sequence_38",
+        "intRowsAffected&Sequence_38",
+        "intRowsUpdated&Sequence_38",
+        "listRowItems&Sequence_38",
+        "strColLetter&Sequence_38",
+        "intRowIndex&Sequence_39",
+        "intCounterToUpdate&Sequence_39",
+        "strCurrentCounter&Sequence_39",
+        "listManagers&Sequence_40",
+        "intCounterSum&Sequence_41"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_dicConfig",
+        "in_strSummaryReportPath",
+        "in_strSummaryReportSheetName",
+        "in_boolNotApproved",
+        "in_strPrimaryColInWeeklyReport",
+        "in_strHeaderRowInSummaryReport",
+        "in_dt_WeeklyReportDetails",
+        "in_strPrimaryColInSumReport",
+        "in_strCounterColInSumReport",
+        "in_boolLastRunOfMonth"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/SummaryReport/NoTimeReportedSummaryReport.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dateToday&Sequence_1",
+        "strSummaryReportPath&Sequence_1",
+        "boolReportCreatedNow&Sequence_1",
+        "dt_WeeklyDetails&Sequence_1",
+        "dateLastWedOfMonth&Sequence_1",
+        "strFileName&Sequence_1",
+        "boolLastRun&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_boolNoDataNoTimeReport",
+        "in_dicConfig",
+        "in_dt_WeeklyDetails"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/Framework/Process.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strInputFilePath&Sequence_1",
+        "strRequestType&Sequence_1",
+        "strSheetName&Sequence_1",
+        "dt_NoTimeReported&Sequence_1",
+        "dt_NotSubmitted&Sequence_1",
+        "dt_NotApproved&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionItem",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/Framework/KillAllProcesses - end.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/WeeklyReports/CreateWeeklyNoTimeReportedReport.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_OutputDataClone&Sequence_1",
+        "dt_InputData&Sequence_1",
+        "dt_OutputData&Sequence_1",
+        "strWeekCount&Sequence_1",
+        "strToEmail&Sequence_1",
+        "strCcEmail&Sequence_1",
+        "dateStartDate&Sequence_1",
+        "dateEndDate&Sequence_1",
+        "strMailSubject&Sequence_1",
+        "strMailBody&Sequence_1",
+        "strOutputReportPath&Sequence_1",
+        "boolPayCycleWeek&Sequence_1",
+        "dateCurrentWeekMon&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_dicConfig",
+        "out_boolNoData",
+        "in_StrReportPath",
+        "in_StrReportSheetName",
+        "out_dt_NoTimeReported"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/WeeklyReports/GetStartAndEndDates.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dateCurrentWeekMon&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_DatePreviousWeekSunday",
+        "out_DatePreviousWeekSaturday",
+        "out_BoolPayCycleWeek",
+        "in_DatePayCycleWeekMonday"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/SummaryReport/GetLastWednesdayOfMonth.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dateLastDayOfMonth&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_DateLastWedOfMonth"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/SummaryReport/CheckAndCreateSummaryReport.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strFileName&Sequence_1",
+        "strFolderPath&Sequence_1",
+        "strReportFullPath&Sequence_1",
+        "boolFileExists&Sequence_1",
+        "intResultcount&Sequence_1",
+        "boolSummaryReportDownloaded&Sequence_1",
+        "strParentFolderPath&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_dicConfig",
+        "in_strFolderPath",
+        "in_strFileName",
+        "out_boolReportCreatedNow",
+        "in_strReportTemplatePath",
+        "out_strDownloadedReportPath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/WeeklyReports/CreateWeeklyNotApprovedReport.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strAwaitingEmail&Sequence_6",
+        "strOutputReportPath&Sequence_1",
+        "dt_InputData&Sequence_1",
+        "dt_OutputData&Sequence_1",
+        "strToEmail&Sequence_1",
+        "dateStartDate&Sequence_1",
+        "dateEndDate&Sequence_1",
+        "strWeekCount&Sequence_1",
+        "strMailSubject&Sequence_1",
+        "strMailBody&Sequence_1",
+        "boolPayCycleWeek&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_boolNoData",
+        "in_strReportPath",
+        "in_strReportSheetName",
+        "in_dicConfig",
+        "out_dt_Report"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/test.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "attachmentpath&Sequence_1",
+        "t&Sequence_1",
+        "dt&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/Send Email/SendMail.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_dicConfig",
+        "in_ListAttachmentPath",
+        "in_StrToAddress",
+        "in_StrCcAddress",
+        "in_StrSubject",
+        "in_StrBody",
+        "in_StrAccount"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/WeeklyReports/CreateWeeklyNotSubmittedReport.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_EmailData&Sequence_11",
+        "intCount&Sequence_11",
+        "dt_InputData&Sequence_1",
+        "dt_OutputData&Sequence_1",
+        "strWeekCount&Sequence_1",
+        "strToEmail&Sequence_1",
+        "strCcEmail&Sequence_1",
+        "dateStartDate&Sequence_1",
+        "dateEndDate&Sequence_1",
+        "strMailSubject&Sequence_1",
+        "strMailBody&Sequence_1",
+        "boolPayCycleWeek&Sequence_1",
+        "strOutputFilPath&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_dicConfig",
+        "out_boolNoData",
+        "in_StrReportPath",
+        "in_StrReportSheetName",
+        "out_dt_Output"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/Framework/InitAllSettings.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_SettingsAndConstants&Sequence_5",
+        "dt_Assets&Sequence_6",
+        "AssetValue&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigFile",
+        "in_ConfigSheets",
+        "out_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/Framework/SetTransactionStatus.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "QueueRetry&Sequence_17",
+        "ScreenshotPath&Sequence_17"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_BusinessException",
+        "in_TransactionField1",
+        "in_TransactionField2",
+        "in_TransactionID",
+        "in_SystemException",
+        "in_Config",
+        "in_TransactionItem",
+        "io_RetryNumber",
+        "io_TransactionNumber",
+        "io_ConsecutiveSystemExceptions"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/Framework/CloseAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/Process.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strInputFilePath&Sequence_1",
+        "strRequestType&Sequence_1",
+        "strSheetName&Sequence_1",
+        "dt_NoTimeReported&Sequence_1",
+        "dt_NotSubmitted&Sequence_1",
+        "dt_NotApproved&Sequence_1",
+        "boolInputDownloaded&Sequence_1",
+        "boolNoDataNotApproved&Sequence_1",
+        "boolNoDataNotSubmitted&Sequence_1",
+        "boolNoDataNoTimeReport&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "in_TransactionItem"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/SetTransactionStatus.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "QueueRetry&Sequence_17",
+        "ScreenshotPath&Sequence_17"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_BusinessException",
+        "in_TransactionField1",
+        "in_TransactionField2",
+        "in_TransactionID",
+        "in_SystemException",
+        "in_Config",
+        "in_TransactionItem",
+        "io_RetryNumber",
+        "io_TransactionNumber",
+        "io_ConsecutiveSystemExceptions"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/InitAllApplicationsTestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Config&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/ProcessTestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Config&Sequence_1",
+        "TransactionItem&Sequence_1",
+        "TransactionNumber&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/GetTransactionDataTestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Config&Sequence_1",
+        "TransactionNumber&Sequence_1",
+        "TransactionItem&Sequence_1",
+        "VerificationOutput&Sequence_4"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/Framework/InitAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/InitAllSettingsTestCase.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Config&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Tests/WorkflowTestCaseTemplate.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Config&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/CloseAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/Sharepoint/SaveFIleIntoSharepoint.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "boolFileUploaded&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_strException",
+        "in_strOrchestratorFolderpath",
+        "in_strLocalFilepath",
+        "in_strTenantID",
+        "in_strApplicationID",
+        "in_strApplicationSecretName",
+        "in_strSharePtURL",
+        "in_strSharepointParentFolder"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllSettings.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_SettingsAndConstants&Sequence_5",
+        "dt_Assets&Sequence_6",
+        "AssetValue&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigFile",
+        "in_ConfigSheets",
+        "out_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/KillAllProcesses - end.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "intResCount&Sequence_9",
+        "boolFolderExists&Sequence_9"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/GetTransactionData.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionNumber",
+        "in_Config",
+        "out_TransactionItem",
+        "out_TransactionField1",
+        "out_TransactionField2",
+        "out_TransactionID",
+        "io_dt_TransactionData"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/WeeklyReports/Cleanup.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/Sharepoint/CreateSharepointFolders.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "boolFolderExists&Sequence_1",
+        "intResultcount&Sequence_1",
+        "boolFolderCreated&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_strOrchestratorFolderPath",
+        "in_Config",
+        "in_strTenantID",
+        "in_strApplicationID",
+        "in_strApplicationSecretName",
+        "in_strSharePtURL",
+        "in_strSharepointParentFolder"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/Sharepoint/CreateLocalFolder.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "boolLocalFolderExists&Sequence_1",
+        "strLocalProjectFolderPath&Sequence_1",
+        "strLocalRootFolder&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}
