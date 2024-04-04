@@ -1,0 +1,504 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="GenerateSummaryReport" this:GenerateSummaryReport.in_boolNotApproved="False" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:uasc="clr-namespace:UiPath.Activities.System.Collections;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_strSummaryReportPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_strSummaryReportSheetName" Type="InArgument(x:String)" />
+    <x:Property Name="in_boolNotApproved" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_strPrimaryColInWeeklyReport" Type="InArgument(x:String)" />
+    <x:Property Name="in_strHeaderRowInSummaryReport" Type="InArgument(x:String)" />
+    <x:Property Name="in_dt_WeeklyReportDetails" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_strPrimaryColInSumReport" Type="InArgument(x:String)" />
+    <x:Property Name="in_strCounterColInSumReport" Type="InArgument(x:String)" />
+    <x:Property Name="in_boolLastRunOfMonth" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_dicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1100,1703</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>GenerateSummaryReport_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Activities.System.Collections</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Excel.Helpers</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml adds rows to summary report or incremennts counter.&#xA;PreCondition: Weekly report exists&#xA;PostCondition: Summary report data gets ready." DisplayName="GenerateSummaryReport" sap:VirtualizedContainerService.HintSize="450,1638" sap2010:WorkflowViewState.IdRef="Sequence_38">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_SummaryReport" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="intRowsAffected" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="intRowsUpdated" />
+      <Variable x:TypeArguments="scg:List(x:Object)" Default="[new list(of Object)]" Name="listRowItems" />
+      <Variable x:TypeArguments="x:String" Name="strColLetter" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="log Generate Summary Report start" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Generate summary report has started&quot;]" />
+    <ui:ReadRange AddHeaders="True" DataTable="[dt_SummaryReport]" DisplayName="Read Summary Report" sap:VirtualizedContainerService.HintSize="388,88" sap2010:WorkflowViewState.IdRef="ReadRange_3" Range="[&quot;A&quot;+in_strHeaderRowInSummaryReport]" SheetName="[in_strSummaryReportSheetName]" WorkbookPath="[in_strSummaryReportPath]" />
+    <ui:LogMessage DisplayName="log Report Row Count" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Rows in summary report: &quot;+dt_SummaryReport.RowCount.ToString]" />
+    <ui:AddDataColumn x:TypeArguments="x:Int32" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Counter" DataTable="[in_dt_WeeklyReportDetails]" DefaultValue="1" DisplayName="Add counter Coumn To Report" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_4" />
+    <If Condition="[dt_SummaryReport.RowCount=0]" DisplayName="If Report Has No Rows" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="If_10">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="572,1287" sap2010:WorkflowViewState.IdRef="Sequence_43">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_dt_WeeklyReportDetails]" DisplayName="For Each Row In Report" sap:VirtualizedContainerService.HintSize="530,1199" sap2010:WorkflowViewState.IdRef="ForEachRow_6">
+            <ui:ForEachRow.Body>
+              <ActivityAction x:TypeArguments="sd:DataRow">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Add Data To Summary Report" sap:VirtualizedContainerService.HintSize="496,1084" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Nullify List" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_36">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="scg:List(x:Object)">[listRowItems]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="scg:List(x:Object)">[new list(of object)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <uasc:AppendItemToCollection x:TypeArguments="x:Object" Collection="[listRowItems]" DisplayName="Add Sno to List" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_11">
+                    <uasc:AppendItemToCollection.Items>
+                      <scg:List x:TypeArguments="InArgument(x:Object)" Capacity="4">
+                        <InArgument x:TypeArguments="x:Object">[dt_SummaryReport.RowCount+1]</InArgument>
+                      </scg:List>
+                    </uasc:AppendItemToCollection.Items>
+                  </uasc:AppendItemToCollection>
+                  <uasc:MergeCollections x:TypeArguments="x:Object" Collection="[listRowItems]" DisplayName="Add Other Values From Weekly Report" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="MergeCollections`1_7" Result="[listRowItems]" SecondCollection="[CurrentRow.ItemArray.ToList]" />
+                  <uasc:AppendItemToCollection x:TypeArguments="x:Object" Collection="[listRowItems]" DisplayName="Add Timestamp To List" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_12">
+                    <uasc:AppendItemToCollection.Items>
+                      <scg:List x:TypeArguments="InArgument(x:Object)" Capacity="4">
+                        <InArgument x:TypeArguments="x:Object">[now.Date]</InArgument>
+                      </scg:List>
+                    </uasc:AppendItemToCollection.Items>
+                  </uasc:AppendItemToCollection>
+                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[listRowItems.ToArray]" DataTable="[dt_SummaryReport]" DisplayName="Add Data Row To Summary DataTable" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_8" />
+                  <Assign DisplayName="Increment Rows Added Counter" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_37">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[intRowsAffected]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[intRowsAffected+1]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEachRow.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ForEachRow>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="685,1789" sap2010:WorkflowViewState.IdRef="Sequence_46">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_dt_WeeklyReportDetails]" DisplayName="For Each Row in weekly dt" sap:VirtualizedContainerService.HintSize="643,1701" sap2010:WorkflowViewState.IdRef="ForEachRow_7">
+            <ui:ForEachRow.Body>
+              <ActivityAction x:TypeArguments="sd:DataRow">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="add details to summary dt" sap:VirtualizedContainerService.HintSize="609,1586" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Int32" Name="intRowIndex" />
+                    <Variable x:TypeArguments="x:Int32" Default="1" Name="intCounterToUpdate" />
+                    <Variable x:TypeArguments="x:Object" Name="strCurrentCounter" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LookupDataTable LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[dt_SummaryReport]" DisplayName="get existing counter from summary dt" sap:VirtualizedContainerService.HintSize="547,292" sap2010:WorkflowViewState.IdRef="LookupDataTable_3" LookupColumnName="[in_strPrimaryColInSumReport]" LookupValue="[cstr(CurrentRow(in_strPrimaryColInWeeklyReport))]" RowIndex="[intRowIndex]" TargetColumnName="[in_strCounterColInSumReport]">
+                    <ui:LookupDataTable.CellValue>
+                      <OutArgument x:TypeArguments="x:Object">[strCurrentCounter]</OutArgument>
+                    </ui:LookupDataTable.CellValue>
+                  </ui:LookupDataTable>
+                  <ui:LogMessage DisplayName="log existing counter" sap:VirtualizedContainerService.HintSize="547,141" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Current counter: &quot;+cstr(strCurrentCounter)+&quot; at row: &quot;+cstr(intRowIndex)]" />
+                  <ui:IfElseIf DisplayName="add new row or update counter" sap:VirtualizedContainerService.HintSize="547,962" sap2010:WorkflowViewState.IdRef="IfElseIf_3">
+                    <ui:IfElseIf.ConditionBlocks>
+                      <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                        <ui:IfElseIfBlock BlockType="If" Condition="[intRowIndex=-1]">
+                          <ui:IfElseIfBlock.Then>
+                            <Sequence DisplayName="add new row to existing data" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="initialise list" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_38">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="scg:List(x:Object)">[listRowItems]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="scg:List(x:Object)">[new list(of object)]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <uasc:AppendItemToCollection x:TypeArguments="x:Object" Collection="[listRowItems]" DisplayName="Append items to collection - sno" sap:VirtualizedContainerService.HintSize="433.6,141.6" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_13">
+                                <uasc:AppendItemToCollection.Items>
+                                  <scg:List x:TypeArguments="InArgument(x:Object)" Capacity="4">
+                                    <InArgument x:TypeArguments="x:Object">[dt_SummaryReport.RowCount+1]</InArgument>
+                                  </scg:List>
+                                </uasc:AppendItemToCollection.Items>
+                              </uasc:AppendItemToCollection>
+                              <uasc:MergeCollections x:TypeArguments="x:Object" Collection="[listRowItems]" DisplayName="Merge collections - weekly report details" sap:VirtualizedContainerService.HintSize="433.6,142.4" sap2010:WorkflowViewState.IdRef="MergeCollections`1_8" Result="[listRowItems]" SecondCollection="[CurrentRow.ItemArray.ToList]" />
+                              <uasc:AppendItemToCollection x:TypeArguments="x:Object" Collection="[listRowItems]" DisplayName="Append items to collection - date" sap:VirtualizedContainerService.HintSize="433.6,141.6" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_14">
+                                <uasc:AppendItemToCollection.Items>
+                                  <scg:List x:TypeArguments="InArgument(x:Object)" Capacity="4">
+                                    <InArgument x:TypeArguments="x:Object">[now.Date]</InArgument>
+                                  </scg:List>
+                                </uasc:AppendItemToCollection.Items>
+                              </uasc:AppendItemToCollection>
+                              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[listRowItems.ToArray]" DataTable="[dt_SummaryReport]" DisplayName="Add Data Row - summary dt" sap:VirtualizedContainerService.HintSize="433.6,188" sap2010:WorkflowViewState.IdRef="AddDataRow_9" />
+                              <Assign DisplayName="Assign rows added+1" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_39">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[intRowsAffected]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Int32">[intRowsAffected+1]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </ui:IfElseIfBlock.Then>
+                        </ui:IfElseIfBlock>
+                        <ui:IfElseIfBlock BlockType="ElseIf" Condition="[not(string.IsNullOrWhiteSpace(cstr(strCurrentCounter))) AndAlso cdate(dt_SummaryReport(intRowIndex)(&quot;TimeStamp&quot;))&lt;now.AddDays(-2)]">
+                          <ui:IfElseIfBlock.Then>
+                            <Sequence DisplayName="update counter and timestamp" sap:VirtualizedContainerService.HintSize="496,559" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="increment counter" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_40">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[intCounterToUpdate]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Int32">[CInt(strCurrentCounter)+1]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign DisplayName="update counter in summary dt" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_41">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Object">[dt_SummaryReport(intRowIndex)(in_strCounterColInSumReport)]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Object">[intCounterToUpdate]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign DisplayName="update date" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_42">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Object">[dt_SummaryReport(intRowIndex)("TimeStamp")]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Object">[now.Date]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign DisplayName="increment rows updated counter" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_43">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[intRowsUpdated]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Int32">[intRowsUpdated+1]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </ui:IfElseIfBlock.Then>
+                        </ui:IfElseIfBlock>
+                      </sc:BindingList>
+                    </ui:IfElseIf.ConditionBlocks>
+                  </ui:IfElseIf>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEachRow.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ForEachRow>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Log Summary DataTable Added Updated Details" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Rows added to summary report: &quot;+cstr(intRowsAffected)+&quot; Rows updated: &quot;+cstr(intRowsUpdated)]" />
+    <If Condition="[in_boolLastRunOfMonth]" DisplayName="If Last Run Of Month" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="If_11">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="476,552" sap2010:WorkflowViewState.IdRef="Sequence_47">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="TimeStamp" DataTable="[dt_SummaryReport]" DisplayName="Remove Data Column - timestamp" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_7" />
+          <Assign DisplayName="Assign Str Col Letter" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_44">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[strColLetter]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[UiPath.Excel.Helpers.ExcelUtilities.ConvertColumnIndexToColumnLetter(dt_SummaryReport.Columns.Count+1)]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:WriteCell Cell="[&quot;A&quot;+in_strHeaderRowInSummaryReport+&quot;:&quot;+strColLetter+cstr(dt_SummaryReport.RowCount+cint(in_strHeaderRowInSummaryReport))]" DisplayName="empty the contents of excel" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="[in_strSummaryReportSheetName]" WorkbookPath="[in_strSummaryReportPath]">
+            <ui:WriteCell.Text>
+              <InArgument x:TypeArguments="x:String">
+                <Literal x:TypeArguments="x:String" Value="" />
+              </InArgument>
+            </ui:WriteCell.Text>
+          </ui:WriteCell>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_48" />
+      </If.Else>
+    </If>
+    <If Condition="[in_boolNotApproved AndAlso in_boolLastRunOfMonth]" DisplayName="If Not Approved Report" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="If_13">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="552,1615" sap2010:WorkflowViewState.IdRef="Sequence_40">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="scg:List(x:String)" Default="[new list(of String)]" Name="listManagers" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Get All Manager Ids" sap:VirtualizedContainerService.HintSize="510,82" sap2010:WorkflowViewState.IdRef="Assign_45">
+            <Assign.To>
+              <OutArgument x:TypeArguments="scg:List(x:String)">[listManagers]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="scg:List(x:String)">[dt_SummaryReport.AsEnumerable().Select(function(x) x("Manager ID").ToString).Distinct.tolist()]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Manager" sap:VirtualizedContainerService.HintSize="510,561" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[listManagers]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="x:String">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:String" Name="currentItem" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,375" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Int32" Name="intCounterSum" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Get Sum For All Rows Of Manager" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_46">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[intCounterSum]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[dt_SummaryReport.AsEnumerable.Where(function(x) x("Manager ID").ToString=currentItem).Select(function(y) cint(y("Not Approved Count"))).Sum]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:InvokeCode ContinueOnError="{x:Null}" Code="dt.AsEnumerable.Where(Function(r) r(&quot;Manager ID&quot;).ToString =managerID).ToList.ForEach(&#xA;Sub(r) &#xA;     r(&quot;Not Approved Count&quot;)=cstr(counter)&#xA;End Sub&#xA;)" DisplayName="update counter" sap:VirtualizedContainerService.HintSize="434,165" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
+                    <ui:InvokeCode.Arguments>
+                      <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt">[dt_SummaryReport]</InOutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="managerID">[currentItem]</InArgument>
+                      <InArgument x:TypeArguments="x:Int32" x:Key="counter">[intCounterSum]</InArgument>
+                    </ui:InvokeCode.Arguments>
+                  </ui:InvokeCode>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ForEach>
+          <If Condition="[dt_SummaryReport.RowCount&gt;0]" DisplayName="If Row Count Is Greater Than Zero" sap:VirtualizedContainerService.HintSize="510,352" sap2010:WorkflowViewState.IdRef="If_12">
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Remove Duplicate Rows Report" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_47">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="sd:DataTable">[dt_SummaryReport]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="sd:DataTable">[dt_SummaryReport.AsEnumerable().GroupBy(Function(x) x("Manager ID").ToString.Trim).Select(Function(y) y.First()).CopyToDataTable]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap:VirtualizedContainerService.HintSize="376,229" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Row Count is Greater Than Zero" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Row Count is not greter than zero&quot;]" />
+              </Sequence>
+            </If.Else>
+          </If>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Manager ID" DataTable="[dt_SummaryReport]" DisplayName="Remove Manager ID" sap:VirtualizedContainerService.HintSize="510,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_8" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Employee ID" DataTable="[dt_SummaryReport]" DisplayName="Remove Emp ID" sap:VirtualizedContainerService.HintSize="510,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_9" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,229" sap2010:WorkflowViewState.IdRef="Sequence_51">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Not Apporved End" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Report type is not matched&quot;]" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:WriteRange AddHeaders="True" DataTable="[dt_SummaryReport]" DisplayName="Write Data To Sumary Report" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="[in_strSummaryReportSheetName]" StartingCell="[&quot;A&quot;+in_strHeaderRowInSummaryReport]" WorkbookPath="[in_strSummaryReportPath]" />
+    <ui:LogMessage DisplayName="Log Generate Summary Report End" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Generate summary report has completed&quot;]" />
+  </Sequence>
+</Activity>
