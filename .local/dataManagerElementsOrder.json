@@ -46,6 +46,8 @@
         "boolLastRun&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_EmailCC",
+        "in_agencycode",
         "in_boolNoDataNotSubmitted",
         "in_dicConfig",
         "in_dt_WeeklyReport"
@@ -67,6 +69,7 @@
         "boolLastRun&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_AgencyCode",
         "in_boolNoDataNotApproved",
         "in_dicConfig",
         "in_dt_WeeklyReport"
@@ -119,6 +122,7 @@
         "boolLastRun&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_AgencyCode",
         "in_boolNoDataNoTimeReport",
         "in_dicConfig",
         "in_dt_WeeklyDetails"
@@ -156,7 +160,6 @@
       "Path": "Process/WeeklyReports/CreateWeeklyNoTimeReportedReport.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "dt_OutputDataClone&Sequence_1",
         "dt_InputData&Sequence_1",
         "dt_OutputData&Sequence_1",
         "strWeekCount&Sequence_1",
@@ -168,9 +171,12 @@
         "strMailBody&Sequence_1",
         "strOutputReportPath&Sequence_1",
         "boolPayCycleWeek&Sequence_1",
-        "dateCurrentWeekMon&Sequence_1"
+        "dateCurrentWeekMon&Sequence_1",
+        "dt_OutputDataClone&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_PayrollEmails",
+        "in_AgencyCode",
         "in_dicConfig",
         "out_boolNoData",
         "in_StrReportPath",
@@ -222,6 +228,7 @@
         "strParentFolderPath&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_AgencyCode",
         "in_strFileNamePreviousMon",
         "in_dicConfig",
         "in_strFolderPath",
@@ -250,6 +257,8 @@
         "boolPayCycleWeek&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_EmailCC",
+        "in_strAgencyCode",
         "out_boolNoData",
         "in_strReportPath",
         "in_strReportSheetName",
@@ -306,6 +315,8 @@
         "strOutputFilPath&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_PayrollEmails",
+        "in_AgencyCode",
         "in_dicConfig",
         "out_boolNoData",
         "in_StrReportPath",

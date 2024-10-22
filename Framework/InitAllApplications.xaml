@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>440,1202</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2594,2098</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -126,7 +126,7 @@
       <AssemblyReference>LIB_GraphAPI</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="450,1137" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="548,2033" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="boolFolderExists" />
       <Variable x:TypeArguments="x:Int32" Name="intResCount" />
@@ -137,21 +137,21 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
-    <l:Files_or_Folders_Exist in_strSharepointSubfolder="{x:Null}" sap2010:Annotation.AnnotationText="Ths will give the sahrepoint connecvity details." DisplayName="Sharepoint Connectivity Exists" sap:VirtualizedContainerService.HintSize="388,94" sap2010:WorkflowViewState.IdRef="Files_or_Folders_Exist_2" in_strApplicationIDAssetName="[cstr(in_Config(&quot;O365ApplicationIDAssetName&quot;))]" in_strApplicationSecretAssetName="[cstr(in_Config(&quot;O365ApplicationSecretAssetName&quot;))]" in_strOrchestratorFolderPath="[cstr(in_Config(&quot;O365AssetsInOrchestratorFolder&quot;))]" in_strSharepointFileFolderToSearch="[cstr(in_Config(&quot;P003_090_TimesheetApprovals_SPRootFolder&quot;))]" in_strSharepointURL="[CStr(in_Config(&quot;P003_090_TimesheetApprovals_SPURL&quot;))]" in_strTenantIDAssetName="[CStr(in_Config(&quot;O365TenantIDAssetName&quot;))]" out_boolResultFileFolderFound="[boolFolderExists]" out_intResultCount="[intResCount]">
+    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="486,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
+    <l:Files_or_Folders_Exist in_strSharepointSubfolder="{x:Null}" sap2010:Annotation.AnnotationText="Ths will give the sahrepoint connecvity details." DisplayName="Sharepoint Connectivity Exists" sap:VirtualizedContainerService.HintSize="486,529" sap2010:WorkflowViewState.IdRef="Files_or_Folders_Exist_2" in_strApplicationIDAssetName="[cstr(in_Config(&quot;O365ApplicationIDAssetName&quot;))]" in_strApplicationSecretAssetName="[cstr(in_Config(&quot;O365ApplicationSecretAssetName&quot;))]" in_strOrchestratorFolderPath="[cstr(in_Config(&quot;O365AssetsInOrchestratorFolder&quot;))]" in_strSharepointFileFolderToSearch="[cstr(in_Config(&quot;P003_090_TimesheetApprovals_SPRootFolder&quot;))]" in_strSharepointURL="[CStr(in_Config(&quot;P003_090_TimesheetApprovals_SPURL&quot;))]" in_strTenantIDAssetName="[CStr(in_Config(&quot;O365TenantIDAssetName&quot;))]" out_boolResultFileFolderFound="[boolFolderExists]" out_intResultCount="[intResCount]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </l:Files_or_Folders_Exist>
-    <If sap2010:Annotation.AnnotationText="This Will throw sharepoint connecvity error if not present." Condition="[not(boolFolderExists)]" DisplayName="If Sharepoint Connectivity Exists" sap:VirtualizedContainerService.HintSize="388,109" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap2010:Annotation.AnnotationText="This Will throw sharepoint connecvity error if not present." Condition="[not(boolFolderExists)]" DisplayName="If Sharepoint Connectivity Exists" sap:VirtualizedContainerService.HintSize="486,391" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -176,15 +176,36 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will checks whether the required folder present or not. If not it will create the folder." DisplayName="Create Sharepoint Folders.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Process\Sharepoint\CreateSharepointFolders.xaml">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,345" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,266" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will checks whether the required folder present or not. If not it will create the folder." DisplayName="Create Sharepoint Folders.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Process\Sharepoint\CreateSharepointFolders.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strTenantID">[cstr(in_Config("O365TenantIDAssetName"))]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationID">[cstr(in_Config("O365ApplicationIDAssetName"))]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationSecretName">[cstr(in_Config("O365ApplicationSecretAssetName"))]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strSharePtURL">[cstr(in_Config("P003_090_TimesheetApprovals_SPURL"))]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strSharepointParentFolder">[cstr(in_Config("P003_090_TimesheetApprovals_SPRootFolder"))]</InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strOrchestratorFolderPath">[cstr(in_Config("O365AssetsInOrchestratorFolder"))]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will create Local working folder" DisplayName="Process\Sharepoint\CreateLocalFolder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="486,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Process\Sharepoint\CreateLocalFolder.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_strTenantID">[cstr(in_Config("O365TenantIDAssetName"))]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationID">[cstr(in_Config("O365ApplicationIDAssetName"))]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationSecretName">[cstr(in_Config("O365ApplicationSecretAssetName"))]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_strSharePtURL">[cstr(in_Config("P003_090_TimesheetApprovals_SPURL"))]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_strSharepointParentFolder">[cstr(in_Config("P003_090_TimesheetApprovals_SPRootFolder"))]</InArgument>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_strOrchestratorFolderPath">[cstr(in_Config("O365AssetsInOrchestratorFolder"))]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -192,16 +213,6 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will create Local working folder" DisplayName="Process\Sharepoint\CreateLocalFolder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Process\Sharepoint\CreateLocalFolder.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:InvokeWorkflowFile>
-    <ui:LogMessage DisplayName="Log message (Initialize applications) End" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Opened all applications...&quot;]" />
+    <ui:LogMessage DisplayName="Log message (Initialize applications) End" sap:VirtualizedContainerService.HintSize="486,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Opened all applications...&quot;]" />
   </Sequence>
 </Activity>
