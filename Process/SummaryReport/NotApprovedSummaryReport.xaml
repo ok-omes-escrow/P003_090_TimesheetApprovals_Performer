@@ -11,7 +11,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1153.3333333333333,3760.6666666666665</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>855.3333333333334,3886</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>NoTimeReportedSummaryReport_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -116,16 +116,16 @@
       <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This flow will creates monthly summary report for Not Approved people and send out email if it is last wednesday of the month." DisplayName="Sequence Not Approved Summary Report" sap:VirtualizedContainerService.HintSize="672.6666666666666,3696" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence sap2010:Annotation.AnnotationText="This flow will creates monthly summary report for Not Approved people and send out email if it is last wednesday of the month." DisplayName="Sequence Not Approved Summary Report" sap:VirtualizedContainerService.HintSize="672.6666666666666,3821.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch Not Approved Summary Report" sap:VirtualizedContainerService.HintSize="610.6666666666666,3540" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Not Approved Summary Report" sap:VirtualizedContainerService.HintSize="610.6666666666666,3665.3333333333335" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="This flow will creates monthly summary report for Not Approved people and send out email if it is last wednesday of the month." DisplayName="Not Approved Summary Report" sap:VirtualizedContainerService.HintSize="572,3300.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence sap2010:Annotation.AnnotationText="This flow will creates monthly summary report for Not Approved people and send out email if it is last wednesday of the month." DisplayName="Not Approved Summary Report" sap:VirtualizedContainerService.HintSize="572,3426" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="boolReportCreatedNow" />
             <Variable x:TypeArguments="sd:DataTable" Name="dt_WeeklyDetails" />
@@ -270,30 +270,14 @@
                 </ui:InvokeWorkflowFile>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Upload Not Approved Summary Report To Sharepoint" sap:VirtualizedContainerService.HintSize="434,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Process\Sharepoint\SaveFIleIntoSharepoint.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strLocalFilepath">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strSummaryReportPath" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strTenantID">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_DicConfig(&quot;O365TenantIDAssetName&quot;))" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationID">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_DicConfig(&quot;O365ApplicationIDAssetName&quot;))" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationSecretName">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_DicConfig(&quot;O365ApplicationSecretAssetName&quot;))" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strSharePtURL">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_DicConfig(&quot;P003_090_TimesheetApprovals_SPURL&quot;))" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strSharepointParentFolder">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="if(strFileName.contains(dateToday.AddMonths(-1).ToString(&quot;MMMM&quot;)),cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SPRootFolder&quot;))+&quot;/AgencyData/&quot;+in_AgencyCode+&quot;/&quot;+dateToday.AddMonths(-1).ToString(&quot;yyyy&quot;)+&quot;/&quot;+dateToday.AddMonths(-1).ToString(&quot;MMMM&quot;),cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SPRootFolder&quot;))+&quot;/AgencyData/&quot;+in_AgencyCode+&quot;/&quot;+dateToday.ToString(&quot;yyyy&quot;)+&quot;/&quot;+dateToday.ToString(&quot;MMMM&quot;))" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strOrchestratorFolderpath">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_DicConfig(&quot;O365AssetsInOrchestratorFolder&quot;))" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strException">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;SaveFileSPSE&quot;))" />
-                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strLocalFilepath">[strSummaryReportPath]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strTenantID">[cstr(in_DicConfig("O365TenantIDAssetName"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationID">[cstr(in_DicConfig("O365ApplicationIDAssetName"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationSecretName">[cstr(in_DicConfig("O365ApplicationSecretAssetName"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strSharePtURL">[cstr(in_DicConfig("P003_090_TimesheetApprovals_SPURL"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strSharepointParentFolder">[if(strFileName.contains(dateToday.AddMonths(-1).ToString("MMMM")),cstr(in_dicConfig("P003_090_TimesheetApprovals_SPRootFolder"))+"/AgencyData/"+in_AgencyCode+"/"+dateToday.AddMonths(-1).ToString("yyyy")+"/"+dateToday.AddMonths(-1).ToString("MMMM"),cstr(in_dicConfig("P003_090_TimesheetApprovals_SPRootFolder"))+"/AgencyData/"+in_AgencyCode+"/"+dateToday.ToString("yyyy")+"/"+dateToday.ToString("MMMM"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strOrchestratorFolderpath">[cstr(in_DicConfig("O365AssetsInOrchestratorFolder"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strException">[cstr(in_dicConfig("SaveFileSPSE"))]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </Sequence>
@@ -310,14 +294,17 @@
               <InArgument x:TypeArguments="x:Boolean">[if(dateToday.Date=dateLastWedOfMonth.Date AndAlso dateToday.Hour&gt;=cint(cstr(in_dicConfig("P003_090_TimesheetApprovals_SummaryMailTime")).Split(":"c).First) andalso dateToday.Minute&gt;=cint(cstr(in_dicConfig("P003_090_TimesheetApprovals_SummaryMailTime")).Split(":"c).last),true,false)]</InArgument>
             </Assign.Value>
           </Assign>
-          <If Condition="[(dateToday.Date=dateLastWedOfMonth.Date AndAlso dateToday.Hour&gt;=cint(cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SummaryMailTime&quot;)).Split(&quot;:&quot;c).First) andalso dateToday.Minute&gt;=cint(cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SummaryMailTime&quot;)).Split(&quot;:&quot;c).last))]" DisplayName="If Last Wed Last Run" sap:VirtualizedContainerService.HintSize="510,638" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[(dateToday.Date=dateLastWedOfMonth.Date AndAlso dateToday.Hour&gt;=cint(cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SummaryMailTime&quot;)).Split(&quot;:&quot;c).First) andalso dateToday.Minute&gt;=cint(cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SummaryMailTime&quot;)).Split(&quot;:&quot;c).last))]" DisplayName="If Last Wed Last Run" sap:VirtualizedContainerService.HintSize="510,763.3333333333334" sap2010:WorkflowViewState.IdRef="If_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="476,454" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence sap:VirtualizedContainerService.HintSize="476,579.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="s:String[]" Name="strEmailCC" />
+                </Sequence.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -340,15 +327,37 @@ CStr(in_dicConfig("NotApprovedSummaryReportFileName")).replace("{currentMonth}",
                     <InArgument x:TypeArguments="x:String">[cstr(in_dicConfig("LocalFolderPath"))+"\"+strSummaryReportPath]</InArgument>
                   </Assign.Value>
                 </Assign>
+                <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_10">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="s:String[]">[strEmailCC]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="s:String[]">[cstr(in_DicConfig("P003_090_TimesheetApprovals_SummaryMailCC")).Split(";")]</InArgument>
+                  </Assign.Value>
+                </Assign>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will send out email for not appvoed summary report" DisplayName="SendMail Not Approved Summary.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Process\Send Email\SendMail.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="s:String[]" x:Key="in_StrToAddress">[cstr(in_DicConfig("P003_090_TimesheetApprovals_SummaryMailTo")).Split(";")]</InArgument>
-                    <InArgument x:TypeArguments="s:String[]" x:Key="in_StrCcAddress">[cstr(in_DicConfig("P003_090_TimesheetApprovals_SummaryMailCC")).Split(";")]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">[cstr(in_dicConfig("NotApprovedSummaryMailSubject")).Replace("{month}",now.ToString("MMMM")).Replace("{year}",now.ToString("yyyy"))]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">[cstr(in_DicConfig("P003_090_TimesheetApprovals_NotApprovedSummaryMailBody")).Replace("{month}",now.ToString("MMMM")).Replace("{year}",now.ToString("yyyy"))]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_StrAccount">[CStr(in_DicConfig("P003_090_TimesheetApprovals_MailAccount"))]</InArgument>
-                    <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListAttachmentPath">[new List(of string) from {strSummaryReportPath}]</InArgument>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[in_dicConfig]</InArgument>
+                    <InArgument x:TypeArguments="s:String[]" x:Key="in_StrToAddress">
+                      <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="cstr(in_DicConfig(&quot;P003_090_TimesheetApprovals_SummaryMailTo&quot;)).Split(&quot;;&quot;)" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="s:String[]" x:Key="in_StrCcAddress">
+                      <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="strEmailCC" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;NotApprovedSummaryMailSubject&quot;)).Replace(&quot;{month}&quot;,now.ToString(&quot;MMMM&quot;)).Replace(&quot;{year}&quot;,now.ToString(&quot;yyyy&quot;))" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_DicConfig(&quot;P003_090_TimesheetApprovals_NotApprovedSummaryMailBody&quot;)).Replace(&quot;{month}&quot;,now.ToString(&quot;MMMM&quot;)).Replace(&quot;{year}&quot;,now.ToString(&quot;yyyy&quot;))" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_StrAccount">
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="CStr(in_DicConfig(&quot;P003_090_TimesheetApprovals_MailAccount&quot;))" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListAttachmentPath">
+                      <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="new List(of string) from {strSummaryReportPath}" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">
+                      <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_dicConfig" />
+                    </InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
