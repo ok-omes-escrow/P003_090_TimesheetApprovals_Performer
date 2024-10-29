@@ -11,7 +11,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1150,5786</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>871.3333333333334,5786</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>RPT00169_NotSubmitted_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -220,30 +220,14 @@
           <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt_OutputData]" DisplayName="Generate Output Not Submitted" sap:VirtualizedContainerService.HintSize="572,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[in_StrReportSheetName]" WorkbookPath="[strOutputFilPath]" />
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Upload Not Submitted(RPT00169) Weekly Report To Sharepoint" sap:VirtualizedContainerService.HintSize="572,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Process\Sharepoint\SaveFIleIntoSharepoint.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_strLocalFilepath">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strOutputFilPath" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_strTenantID">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;O365TenantIDAssetName&quot;))" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationID">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;O365ApplicationIDAssetName&quot;))" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationSecretName">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;O365ApplicationSecretAssetName&quot;))" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_strSharePtURL">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SPURL&quot;))" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_strSharepointParentFolder">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SPRootFolder&quot;))+&quot;/AgencyData/&quot;+in_AgencyCode+&quot;/&quot;+Now.ToString(&quot;yyyy&quot;)+&quot;/&quot;+Now.ToString(&quot;MMMM&quot;)+&quot;/&quot;+in_dicConfig(&quot;SharepointOutputFolderName&quot;).ToString+&quot;/&quot;+now.ToString(&quot;MM-dd-yyyy&quot;)" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_strOrchestratorFolderpath">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;O365AssetsInOrchestratorFolder&quot;))" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_strException">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;SaveFileSPSE&quot;))" />
-              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strLocalFilepath">[strOutputFilPath]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strTenantID">[cstr(in_dicConfig("O365TenantIDAssetName"))]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationID">[cstr(in_dicConfig("O365ApplicationIDAssetName"))]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationSecretName">[cstr(in_dicConfig("O365ApplicationSecretAssetName"))]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strSharePtURL">[cstr(in_dicConfig("P003_090_TimesheetApprovals_SPURL"))]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strSharepointParentFolder">[cstr(in_dicConfig("P003_090_TimesheetApprovals_SPRootFolder"))+"/AgencyData/"+in_AgencyCode+"/"+Now.ToString("yyyy")+"/"+Now.ToString("MMMM")+"/"+in_dicConfig("SharepointOutputFolderName").ToString+"/"+now.ToString("MM-dd-yyyy")]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strOrchestratorFolderpath">[cstr(in_dicConfig("O365AssetsInOrchestratorFolder"))]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strException">[cstr(in_dicConfig("SaveFileSPSE"))]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <If sap2010:Annotation.AnnotationText="This will check and proceed for data exist in the report or not." Condition="[dt_OutputData.RowCount&lt;&gt;0]" DisplayName="Check Data In Not Submitted Report" sap:VirtualizedContainerService.HintSize="572,3266" sap2010:WorkflowViewState.IdRef="If_6">
@@ -377,7 +361,7 @@ Select r = dt_EmailData.Rows.Add(ra)).CopyToDataTable]</InArgument>
                           <ui:AssignOperation.Value>
                             <InArgument x:TypeArguments="x:String" xml:space="preserve">[strMailBody.Replace(
 "{startDate}",dateStartDate.ToString("MM/dd/yyyy")).Replace(
-"{endDate}",dateEndDate.ToString("MM/dd/yyyy")).replace("&lt;&lt;PayrollEmails&gt;&gt;", in_payrollemails )]</InArgument>
+"{endDate}",dateEndDate.ToString("MM/dd/yyyy")).replace("&lt;&lt;payrollemails&gt;&gt;", in_payrollemails )]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
                       </scg:List>
