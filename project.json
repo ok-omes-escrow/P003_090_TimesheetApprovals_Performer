@@ -1,5 +1,6 @@
 {
   "name": "P003_090_TimesheetApprovals_Performer",
+  "projectId": "6f58bd6f-9f1b-49bd-962d-535df451da7f",
   "description": "P003_090_TimesheetApprovals_Performer",
   "main": "Main.xaml",
   "dependencies": {
@@ -15,7 +16,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "23.4.5.0",
-  "projectVersion": "1.0.10",
+  "projectVersion": "1.0.12",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -88,7 +89,7 @@
         "fileName": "Tests\\WorkflowTestCaseTemplate.xaml"
       }
     ],
-    "modernBehavior": true
+    "saveToCloud": false
   },
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
