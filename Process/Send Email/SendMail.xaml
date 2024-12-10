@@ -7,6 +7,7 @@
     <x:Property Name="in_StrAccount" Type="InArgument(x:String)" />
     <x:Property Name="in_ListAttachmentPath" Type="InArgument(scg:List(x:String))" />
     <x:Property Name="in_dicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_BCCEmails" Type="InArgument(s:String[])" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -132,16 +133,16 @@
       <AssemblyReference>LIB_GraphAPI</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This will send out an email with respect the activity" DisplayName="Sequence Send Mail TimeSheet Entry Send Reminders" sap:VirtualizedContainerService.HintSize="550,983" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence sap2010:Annotation.AnnotationText="This will send out an email with respect the activity" DisplayName="Sequence Send Mail TimeSheet Entry Send Reminders" sap:VirtualizedContainerService.HintSize="927.9999999999999,1462.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch Send Mail TimeSheet Entry Send Reminders" sap:VirtualizedContainerService.HintSize="488,841" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Send Mail TimeSheet Entry Send Reminders" sap:VirtualizedContainerService.HintSize="454.6666666666667,1409.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="Description: This will send out an email with respect the activity&#xA;PreCondition: Access to mailbox with service account&#xA;PostCondition: Mail sent" DisplayName="Send Mail TimeSheet Entry Send Reminders" sap:VirtualizedContainerService.HintSize="450,613" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence sap2010:Annotation.AnnotationText="Description: This will send out an email with respect the activity&#xA;PreCondition: Access to mailbox with service account&#xA;PostCondition: Mail sent" DisplayName="Send Mail TimeSheet Entry Send Reminders" sap:VirtualizedContainerService.HintSize="416,1147.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -149,21 +150,21 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Send Mail Start" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Send mail has started&quot;]" />
-          <l:Send_Email sap2010:Annotation.AnnotationText="This will send out an email" DisplayName="Send Email Reminders Actual Address" sap:VirtualizedContainerService.HintSize="388,83" sap2010:WorkflowViewState.IdRef="Send_Email_12" in_listOfAttachment="[in_ListAttachmentPath]" in_strApplicationIDAssetName="[cstr(in_dicConfig(&quot;O365ApplicationIDAssetName&quot;))]" in_strApplicationSecretAssetName="[cstr(in_dicConfig(&quot;O365ApplicationSecretAssetName&quot;))]" in_strFromEmailAccount="[in_StrAccount]" in_strMailBody="[in_StrBody]" in_strMailRecipientCC="[in_StrCcAddress]" in_strMailRecipientTo="[in_StrToAddress]" in_strMailSubject="[in_StrSubject]" in_strOrchestratorFolderPath="[cstr(in_dicConfig(&quot;O365AssetsInOrchestratorFolder&quot;))]" in_strTenantIDAssetName="[CStr(in_dicConfig(&quot;O365TenantIDAssetName&quot;))]">
+          <ui:LogMessage DisplayName="Log Send Mail Start" sap:VirtualizedContainerService.HintSize="382,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Send mail has started&quot;]" />
+          <l:Send_Email sap2010:Annotation.AnnotationText="This will send out an email" DisplayName="Send Email Reminders Actual Address" sap:VirtualizedContainerService.HintSize="382,681.3333333333334" sap2010:WorkflowViewState.IdRef="Send_Email_12" in_listOfAttachment="[in_ListAttachmentPath]" in_strApplicationIDAssetName="[cstr(in_dicConfig(&quot;O365ApplicationIDAssetName&quot;))]" in_strApplicationSecretAssetName="[cstr(in_dicConfig(&quot;O365ApplicationSecretAssetName&quot;))]" in_strFromEmailAccount="[in_StrAccount]" in_strMailBCC="[in_BCCEmails]" in_strMailBody="[in_StrBody]" in_strMailRecipientCC="[in_StrCcAddress]" in_strMailRecipientTo="[in_StrToAddress]" in_strMailSubject="[in_StrSubject]" in_strOrchestratorFolderPath="[cstr(in_dicConfig(&quot;O365AssetsInOrchestratorFolder&quot;))]" in_strTenantIDAssetName="[CStr(in_dicConfig(&quot;O365TenantIDAssetName&quot;))]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </l:Send_Email>
-          <ui:LogMessage DisplayName="Log Send Mail End" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Send mail has completed&quot;]" />
+          <ui:LogMessage DisplayName="Log Send Mail End" sap:VirtualizedContainerService.HintSize="382,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Send mail has completed&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="454,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="420.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>

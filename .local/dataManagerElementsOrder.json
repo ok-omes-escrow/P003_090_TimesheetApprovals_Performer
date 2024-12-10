@@ -12,6 +12,7 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "ShouldStop&Sequence_25",
         "TransactionItem&StateMachine_1",
         "SystemException&StateMachine_1",
         "BusinessException&StateMachine_1",
@@ -22,8 +23,7 @@
         "TransactionField1&StateMachine_1",
         "TransactionID&StateMachine_1",
         "dt_TransactionData&StateMachine_1",
-        "ConsecutiveSystemExceptions&StateMachine_1",
-        "ShouldStop&Sequence_25"
+        "ConsecutiveSystemExceptions&StateMachine_1"
       ],
       "ArgumentsSectionElementsOrder": [
         "in_OrchestratorQueueName",
@@ -175,6 +175,7 @@
         "dt_OutputDataClone&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_OutgoingEmailCC",
         "in_PayrollEmails",
         "in_AgencyCode",
         "in_dicConfig",
@@ -257,6 +258,7 @@
         "boolPayCycleWeek&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_OutgoingEmailCC",
         "in_EmailCC",
         "in_strAgencyCode",
         "out_boolNoData",
@@ -315,6 +317,7 @@
         "strOutputFilPath&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_OutgoingEmailCC",
         "in_PayrollEmails",
         "in_AgencyCode",
         "in_dicConfig",
@@ -376,6 +379,7 @@
       "Path": "Framework/Process.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "boolNoDataNoTimeReport&Sequence_2",
         "strInputFilePath&Sequence_1",
         "strRequestType&Sequence_1",
         "strSheetName&Sequence_1",
@@ -384,8 +388,7 @@
         "dt_NotApproved&Sequence_1",
         "boolInputDownloaded&Sequence_1",
         "boolNoDataNotApproved&Sequence_1",
-        "boolNoDataNotSubmitted&Sequence_1",
-        "boolNoDataNoTimeReport&Sequence_2"
+        "boolNoDataNotSubmitted&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
         "in_Config",

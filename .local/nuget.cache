@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "K2BkqJpwGtk7xn6CNWbjuSMoNgN0eOX4JJgvUf5xIeXRsC5G0F7Ryhe92Dz//3OXMTPdr1FnIxiAXVNapTNDfQ==",
+  "dgSpecHash": "b+KtUpYnUFbcKHw7rGSOPnteDTbyAkRjSd9R+H3TBa7L5JBs5g7NQGTdU0Uzz/hWZK+f5FCbWhXrE8nSKHMLDQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\svc_prod.robot02\\Documents\\UiPath\\P003_090_TimesheetApprovals_Performer\\.local\\",
   "expectedPackageFiles": [
@@ -18,8 +18,7 @@
     "C:\\Users\\svc_prod.robot02\\.nuget\\packages\\google.apis.gmail.v1\\1.55.0.2510\\google.apis.gmail.v1.1.55.0.2510.nupkg.sha512",
     "C:\\Users\\svc_prod.robot02\\.nuget\\packages\\google.apis.peopleservice.v1\\1.55.0.2567\\google.apis.peopleservice.v1.1.55.0.2567.nupkg.sha512",
     "C:\\Users\\svc_prod.robot02\\.nuget\\packages\\htmlagilitypack\\1.11.38\\htmlagilitypack.1.11.38.nupkg.sha512",
-    "C:\\Users\\svc_prod.robot02\\.nuget\\packages\\lib_graphapi_1.0\\1.0.1-alpha.2\\lib_graphapi_1.0.1.0.1-alpha.2.nupkg.sha512",
-    "C:\\Users\\svc_prod.robot02\\.nuget\\packages\\lib_graphapi_1.0.library.runtime\\1.0.1-alpha.2\\lib_graphapi_1.0.library.runtime.1.0.1-alpha.2.nupkg.sha512",
+    "C:\\Users\\svc_prod.robot02\\.nuget\\packages\\lib_graphapi\\1.0.2.1\\lib_graphapi.1.0.2.1.nupkg.sha512",
     "C:\\Users\\svc_prod.robot02\\.nuget\\packages\\mailkit\\3.1.1\\mailkit.3.1.1.nupkg.sha512",
     "C:\\Users\\svc_prod.robot02\\.nuget\\packages\\markdig.signed\\0.21.1\\markdig.signed.0.21.1.nupkg.sha512",
     "C:\\Users\\svc_prod.robot02\\.nuget\\packages\\microsoft.applicationinsights\\2.15.0\\microsoft.applicationinsights.2.15.0.nupkg.sha512",

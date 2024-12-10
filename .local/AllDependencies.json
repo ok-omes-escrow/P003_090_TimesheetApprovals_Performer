@@ -237,36 +237,28 @@
           }
         }
       },
-      "LIB_GraphAPI_1.0/1.0.1-alpha.2": {
+      "LIB_GraphAPI/1.0.2.1": {
         "type": "package",
         "dependencies": {
-          "LIB_GraphAPI_1.0.Library.Runtime": "1.0.1-alpha.2",
           "UiPath.MicrosoftOffice365.Activities": "2.4.3",
           "UiPath.System.Activities": "23.4.5"
-        }
-      },
-      "LIB_GraphAPI_1.0.Library.Runtime/1.0.1-alpha.2": {
-        "type": "package",
-        "dependencies": {
-          "UiPath.MicrosoftOffice365.Activities": "2.4.3",
-          "UiPath.System.Runtime.Windows": "23.4.5"
         },
         "compile": {
-          "lib/net6.0-windows7.0/_._": {}
+          "lib/net8.0-windows7.0/_._": {}
         },
         "runtime": {
-          "lib/net6.0-windows7.0/LIB_GraphAPI.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_11756974.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_17896505.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_24514942.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_3099634.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_32834096.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_34737395.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_41566787.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_42604054.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_64415691.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_7894961.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_8963119.dll": {}
+          "lib/net8.0-windows7.0/LIB_GraphAPI.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_19951832.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_21201466.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_35507182.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_42776699.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_43900236.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_46339175.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_52448191.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_53813892.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_58813504.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_63653724.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_64952265.dll": {}
         }
       },
       "MailKit/3.1.1": {
@@ -5904,36 +5896,28 @@
           }
         }
       },
-      "LIB_GraphAPI_1.0/1.0.1-alpha.2": {
+      "LIB_GraphAPI/1.0.2.1": {
         "type": "package",
         "dependencies": {
-          "LIB_GraphAPI_1.0.Library.Runtime": "1.0.1-alpha.2",
           "UiPath.MicrosoftOffice365.Activities": "2.4.3",
           "UiPath.System.Activities": "23.4.5"
-        }
-      },
-      "LIB_GraphAPI_1.0.Library.Runtime/1.0.1-alpha.2": {
-        "type": "package",
-        "dependencies": {
-          "UiPath.MicrosoftOffice365.Activities": "2.4.3",
-          "UiPath.System.Runtime.Windows": "23.4.5"
         },
         "compile": {
-          "lib/net6.0-windows7.0/_._": {}
+          "lib/net8.0-windows7.0/_._": {}
         },
         "runtime": {
-          "lib/net6.0-windows7.0/LIB_GraphAPI.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_11756974.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_17896505.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_24514942.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_3099634.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_32834096.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_34737395.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_41566787.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_42604054.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_64415691.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_7894961.dll": {},
-          "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_8963119.dll": {}
+          "lib/net8.0-windows7.0/LIB_GraphAPI.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_19951832.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_21201466.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_35507182.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_42776699.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_43900236.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_46339175.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_52448191.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_53813892.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_58813504.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_63653724.dll": {},
+          "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_64952265.dll": {}
         }
       },
       "MailKit/3.1.1": {
@@ -11516,10 +11500,10 @@
         "lib/uap10.0/HtmlAgilityPack.pri"
       ]
     },
-    "LIB_GraphAPI_1.0/1.0.1-alpha.2": {
-      "sha512": "LB0+rIP7osk50NBmG/7x1rNyFn42Lh8nm6NGFOZzGvlU3vjKmUfYCNlvScEze2Pb8Rjfl8I37C0j2fxHb5OSXA==",
+    "LIB_GraphAPI/1.0.2.1": {
+      "sha512": "0l2nbZW4HHVOcXyTen7Hqx7G9N2YaYg0ftgpO2ON/hvoyBi0N8H6vJj1/vd77nGtj2lzwgQVeOPD0NOPKfIFMg==",
       "type": "package",
-      "path": "lib_graphapi_1.0/1.0.1-alpha.2",
+      "path": "lib_graphapi/1.0.2.1",
       "files": [
         ".nupkg.metadata",
         "content/.project/PackageBindingsMetadata.json",
@@ -11531,42 +11515,30 @@
         "content/Get Files or Folders.xaml",
         "content/Get List Item Field Value.xaml",
         "content/GetO365Assets.xaml",
+        "content/README.md",
         "content/Read Email.xaml",
-        "content/Runtime.Mapping.json",
         "content/Send Email.xaml",
+        "content/Send Email.xaml.json",
         "content/Test.xaml",
         "content/Update List Item.xaml",
         "content/Upload File.xaml",
         "content/bindings.json",
         "content/bindings_v2.json",
         "content/project.json",
-        "lib_graphapi_1.0.1.0.1-alpha.2.nupkg.sha512",
-        "lib_graphapi_1.0.nuspec"
-      ]
-    },
-    "LIB_GraphAPI_1.0.Library.Runtime/1.0.1-alpha.2": {
-      "sha512": "8lJYVo7j1kdPGVp0cgKDJ/AtP/woMt08ha2Jg0895aDsfgw+Co5GRON+tUQkyJgE5848ntyPjnrUG9kENcrGDQ==",
-      "type": "package",
-      "path": "lib_graphapi_1.0.library.runtime/1.0.1-alpha.2",
-      "files": [
-        ".nupkg.metadata",
-        "content/.settings/Release/settings-9e9290da.json",
-        "content/bindings.json",
-        "content/bindings_v2.json",
-        "lib/net6.0-windows7.0/LIB_GraphAPI.dll",
-        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_11756974.dll",
-        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_17896505.dll",
-        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_24514942.dll",
-        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_3099634.dll",
-        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_32834096.dll",
-        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_34737395.dll",
-        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_41566787.dll",
-        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_42604054.dll",
-        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_64415691.dll",
-        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_7894961.dll",
-        "lib/net6.0-windows7.0/LIB_GraphAPI_Expressions_8963119.dll",
-        "lib_graphapi_1.0.library.runtime.1.0.1-alpha.2.nupkg.sha512",
-        "lib_graphapi_1.0.library.runtime.nuspec"
+        "lib/net8.0-windows7.0/LIB_GraphAPI.dll",
+        "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_19951832.dll",
+        "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_21201466.dll",
+        "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_35507182.dll",
+        "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_42776699.dll",
+        "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_43900236.dll",
+        "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_46339175.dll",
+        "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_52448191.dll",
+        "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_53813892.dll",
+        "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_58813504.dll",
+        "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_63653724.dll",
+        "lib/net8.0-windows7.0/LIB_GraphAPI_Expressions_64952265.dll",
+        "lib_graphapi.1.0.2.1.nupkg.sha512",
+        "lib_graphapi.nuspec"
       ]
     },
     "MailKit/3.1.1": {
@@ -21957,7 +21929,7 @@
   "projectFileDependencyGroups": {
     "": [],
     "net8.0-windows7.0": [
-      "LIB_GraphAPI_1.0 >= 1.0.1-alpha.2 <= 1.0.1-alpha.2",
+      "LIB_GraphAPI >= 1.0.2.1 <= 1.0.2.1",
       "UiPath.Excel.Activities >= 2.20.2 <= 2.20.2",
       "UiPath.Mail.Activities >= 1.21.1 <= 1.21.1",
       "UiPath.System.Activities >= 23.4.5 <= 23.4.5",
@@ -21980,10 +21952,10 @@
     "frameworks": {
       "net8.0-windows7.0": {
         "dependencies": {
-          "LIB_GraphAPI_1.0": {
+          "LIB_GraphAPI": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[1.0.1-alpha.2, 1.0.1-alpha.2]"
+            "version": "[1.0.2.1, 1.0.2.1]"
           },
           "UiPath.Excel.Activities": {
             "include": "Runtime",

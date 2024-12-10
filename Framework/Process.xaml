@@ -138,7 +138,7 @@
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This automation will assist HR team with sending reminder emails to the employees and their supervisor of the time they have not entered in Workday. Automation to login to Workday to pull the list of employees who have not entered their time for the previous week and send out mass reminder email to all the employees excluding executive level &amp; Contractors" DisplayName="Process" sap:VirtualizedContainerService.HintSize="900.6666666666666,3076" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This automation will assist HR team with sending reminder emails to the employees and their supervisor of the time they have not entered in Workday. Automation to login to Workday to pull the list of employees who have not entered their time for the previous week and send out mass reminder email to all the employees excluding executive level &amp; Contractors" DisplayName="Process" sap:VirtualizedContainerService.HintSize="927.9999999999999,3076" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strInputFilePath" />
       <Variable x:TypeArguments="x:String" Name="strRequestType" />
@@ -229,13 +229,13 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence x:Key="NoTimeReported" sap2010:Annotation.AnnotationText="This will process no time reported flow" DisplayName="No Time Reported" sap:VirtualizedContainerService.HintSize="416,56" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence x:Key="NoTimeReported" sap2010:Annotation.AnnotationText="This will process no time reported flow" DisplayName="No Time Reported" sap:VirtualizedContainerService.HintSize="472.6666666666667,706" sap2010:WorkflowViewState.IdRef="Sequence_2">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:Boolean" Name="boolNoDataNoTimeReport" />
         </Sequence.Variables>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
@@ -266,6 +266,12 @@
             <InArgument x:TypeArguments="x:String" x:Key="in_OutgoingEmailCC">
               <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;OutgoingEmailCC&quot;))" />
             </InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_EmailBCC">
+              <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="convert.ToBoolean(in_TransactionItem.SpecificContent(&quot;BCC&quot;))" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_Attachment">
+              <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="convert.ToBoolean(in_TransactionItem.SpecificContent(&quot;Attachment&quot;))" />
+            </InArgument>
           </ui:InvokeWorkflowFile.Arguments>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -276,6 +282,12 @@
           </sap:WorkflowViewStateService.ViewState>
         </ui:InvokeWorkflowFile>
         <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.6666666666667,422.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
           <TryCatch.Try>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will generates summary report for no time reported employees" DisplayName="No Time Reported Summary Report Creation" sap:VirtualizedContainerService.HintSize="337.3333333333333,160.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Process\SummaryReport\NoTimeReportedSummaryReport.xaml">
               <ui:InvokeWorkflowFile.Arguments>
@@ -283,6 +295,8 @@
                 <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[in_Config]</InArgument>
                 <InArgument x:TypeArguments="x:Boolean" x:Key="in_boolNoDataNoTimeReport">[boolNoDataNoTimeReport]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="in_AgencyCode">[cstr(in_TransactionItem.SpecificContent("AgencyCode"))]</InArgument>
+                <InArgument x:TypeArguments="x:Boolean" x:Key="in_BCC">[convert.ToBoolean(in_TransactionItem.SpecificContent("BCC"))]</InArgument>
+                <InArgument x:TypeArguments="x:Boolean" x:Key="in_Attachment">[convert.ToBoolean(in_TransactionItem.SpecificContent("Attachment"))]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -343,6 +357,12 @@
             <InArgument x:TypeArguments="x:String" x:Key="in_OutgoingEmailCC">
               <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;OutgoingEmailCC&quot;))" />
             </InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_attachment">
+              <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="convert.ToBoolean(in_TransactionItem.SpecificContent(&quot;Attachment&quot;))" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_emailbcc">
+              <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="convert.ToBoolean(in_TransactionItem.SpecificContent(&quot;BCC&quot;))" />
+            </InArgument>
           </ui:InvokeWorkflowFile.Arguments>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -350,7 +370,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:InvokeWorkflowFile>
-        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.6666666666667,421.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.6666666666667,422.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_2">
           <TryCatch.Try>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will creates monthly summary report for not submitted employees" DisplayName="Not Submitted Summary Report Creation" sap:VirtualizedContainerService.HintSize="334,160.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Process\SummaryReport\NotSubmittedSummaryReport.xaml">
               <ui:InvokeWorkflowFile.Arguments>
@@ -368,7 +388,7 @@
             </ui:InvokeWorkflowFile>
           </TryCatch.Try>
           <TryCatch.Catches>
-            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.6666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -418,6 +438,12 @@
             </InArgument>
             <InArgument x:TypeArguments="x:String" x:Key="in_OutgoingEmailCC">
               <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;OutgoingEmailCC&quot;))" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_attachment">
+              <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="convert.ToBoolean(in_TransactionItem.SpecificContent(&quot;Attachment&quot;))" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_EmailBCC">
+              <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="convert.ToBoolean(in_TransactionItem.SpecificContent(&quot;BCC&quot;))" />
             </InArgument>
           </ui:InvokeWorkflowFile.Arguments>
           <sap:WorkflowViewStateService.ViewState>

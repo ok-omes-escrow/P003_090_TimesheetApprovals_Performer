@@ -8,6 +8,8 @@
     <x:Property Name="in_AgencyCode" Type="InArgument(x:String)" />
     <x:Property Name="in_PayrollEmails" Type="InArgument(x:String)" />
     <x:Property Name="in_OutgoingEmailCC" Type="InArgument(x:String)" />
+    <x:Property Name="in_attachment" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_emailbcc" Type="InArgument(x:Boolean)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -119,16 +121,16 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml works on Not submitted weekly report." DisplayName="Sequence Not Submitted Report Creation And Sending Reminders" sap:VirtualizedContainerService.HintSize="900.6666666666666,5138" sap2010:WorkflowViewState.IdRef="Sequence_10">
+  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml works on Not submitted weekly report." DisplayName="Sequence Not Submitted Report Creation And Sending Reminders" sap:VirtualizedContainerService.HintSize="927.9999999999999,6260" sap2010:WorkflowViewState.IdRef="Sequence_10">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Not Submitted Report Creation And Sending Reminders" sap:VirtualizedContainerService.HintSize="672.6666666666666,5084.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Not Submitted Report Creation And Sending Reminders" sap:VirtualizedContainerService.HintSize="672.6666666666666,6206.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="Description: This xaml works on Not submitted weekly report." DisplayName="Not Submitted Report Creation And Sending Reminders" sap:VirtualizedContainerService.HintSize="606,4824" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence sap2010:Annotation.AnnotationText="Description: This xaml works on Not submitted weekly report." DisplayName="Not Submitted Report Creation And Sending Reminders" sap:VirtualizedContainerService.HintSize="606,5946" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="dt_InputData" />
             <Variable x:TypeArguments="sd:DataTable" Default="[new DataTable]" Name="dt_OutputData" />
@@ -233,7 +235,7 @@
               <InArgument x:TypeArguments="x:String" x:Key="in_strException">[cstr(in_dicConfig("SaveFileSPSE"))]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <If sap2010:Annotation.AnnotationText="This will check and proceed for data exist in the report or not." Condition="[dt_OutputData.RowCount&lt;&gt;0]" DisplayName="Check Data In Not Submitted Report" sap:VirtualizedContainerService.HintSize="572,2928" sap2010:WorkflowViewState.IdRef="If_6">
+          <If sap2010:Annotation.AnnotationText="This will check and proceed for data exist in the report or not." Condition="[dt_OutputData.RowCount&lt;&gt;0]" DisplayName="Check Data In Not Submitted Report" sap:VirtualizedContainerService.HintSize="572,4050" sap2010:WorkflowViewState.IdRef="If_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -242,14 +244,19 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="530,2368" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,3557.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="scg:List(x:String)" Name="attchmentArray" />
+                  <Variable x:TypeArguments="s:String[]" Name="strBCCEmail" />
+                  <Variable x:TypeArguments="s:String[]" Name="strToAddress" />
+                </Sequence.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="log Not Submitted Data Exists After Filter" sap:VirtualizedContainerService.HintSize="496,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Rows read from input file: &quot;+dt_OutputData.RowCount.ToString]" />
-                <Sequence sap2010:Annotation.AnnotationText="This sequence will get TO and CC emails id's and send weekly reminder emails for not submitted people." DisplayName="Send Weekly Reminder Email Not Submitted" sap:VirtualizedContainerService.HintSize="496,1885.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <ui:LogMessage DisplayName="log Not Submitted Data Exists After Filter" sap:VirtualizedContainerService.HintSize="502,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Rows read from input file: &quot;+dt_OutputData.RowCount.ToString]" />
+                <Sequence sap2010:Annotation.AnnotationText="This sequence will get TO and CC emails id's and send weekly reminder emails for not submitted people." DisplayName="Send Weekly Reminder Email Not Submitted" sap:VirtualizedContainerService.HintSize="502,2004" sap2010:WorkflowViewState.IdRef="Sequence_11">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="sd:DataTable" Default="[new DataTable]" Name="dt_EmailData" />
                     <Variable x:TypeArguments="x:Int32" Name="intCount" />
@@ -321,7 +328,7 @@ Select r = dt_EmailData.Rows.Add(ra)).CopyToDataTable]</InArgument>
                     </Assign.Value>
                   </Assign>
                   <ui:LogMessage DisplayName="log CC Mail Id's Not Submitted" sap:VirtualizedContainerService.HintSize="434,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Manager mail ids: &quot;+strCcEmail]" />
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will get the previous week start and end dates based on PDD logic" DisplayName="Get Start And End Dates Not Submitted Report" sap:VirtualizedContainerService.HintSize="434,160.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Process\WeeklyReports\GetStartAndEndDates.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will get the previous week start and end dates based on PDD logic" DisplayName="Get Start And End Dates Not Submitted Report" sap:VirtualizedContainerService.HintSize="434,192.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Process\WeeklyReports\GetStartAndEndDates.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <OutArgument x:TypeArguments="s:DateTime" x:Key="out_DatePreviousWeekSunday">[dateStartDate]</OutArgument>
                       <OutArgument x:TypeArguments="s:DateTime" x:Key="out_DatePreviousWeekSaturday">[dateEndDate]</OutArgument>
@@ -334,7 +341,7 @@ Select r = dt_EmailData.Rows.Add(ra)).CopyToDataTable]</InArgument>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:InvokeWorkflowFile>
-                  <Assign DisplayName="Assign Mail Subject Not Submitted Report" sap:VirtualizedContainerService.HintSize="434,86" sap2010:WorkflowViewState.IdRef="Assign_19">
+                  <Assign DisplayName="Assign Mail Subject Not Submitted Report" sap:VirtualizedContainerService.HintSize="434,118" sap2010:WorkflowViewState.IdRef="Assign_19">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[strMailSubject]</OutArgument>
                     </Assign.To>
@@ -345,8 +352,8 @@ Select r = dt_EmailData.Rows.Add(ra)).CopyToDataTable]</InArgument>
 "{endday}",dateEndDate.ToString("dd"))]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:LogMessage DisplayName="Log Mail Subject Not Submitted Report" sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Mail subject: &quot;+strMailSubject]" />
-                  <ui:MultipleAssign DisplayName="Assign Mail Body Not Submitted Report" sap:VirtualizedContainerService.HintSize="434,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                  <ui:LogMessage DisplayName="Log Mail Subject Not Submitted Report" sap:VirtualizedContainerService.HintSize="434,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Mail subject: &quot;+strMailSubject]" />
+                  <ui:MultipleAssign DisplayName="Assign Mail Body Not Submitted Report" sap:VirtualizedContainerService.HintSize="434,154" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                         <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -371,15 +378,116 @@ Select r = dt_EmailData.Rows.Add(ra)).CopyToDataTable]</InArgument>
                     </ui:MultipleAssign.AssignOperations>
                   </ui:MultipleAssign>
                 </Sequence>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will send reminder email to people who are not submitted" DisplayName="Send EMail Not Submitted Report Weekly Reminder" sap:VirtualizedContainerService.HintSize="496,160.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Process\Send Email\SendMail.xaml">
+                <If Condition="[in_Attachment=False]" DisplayName="If attachment=false" sap:VirtualizedContainerService.HintSize="502,508" sap2010:WorkflowViewState.IdRef="If_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_24">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="scg:List(x:String)">[attchmentArray]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="scg:List(x:String)">[nothing]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_25">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="scg:List(x:String)">[attchmentArray]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="scg:List(x:String)">[new List(of string) from {strOutputFilPath}]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <If Condition="[in_EmailBCC=True]" DisplayName="If BCC" sap:VirtualizedContainerService.HintSize="502,508" sap2010:WorkflowViewState.IdRef="If_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_26">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="s:String[]">[strBCCEmail]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="s:String[]">[strToEmail.Split(";")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_27">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="s:String[]">[strToAddress]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="s:String[]">[strToEmail.Split(";")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will send reminder email to people who are not submitted" DisplayName="Send EMail Not Submitted Report Weekly Reminder" sap:VirtualizedContainerService.HintSize="502,192.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Process\Send Email\SendMail.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="s:String[]" x:Key="in_StrToAddress">[strToEmail.Split(";")]</InArgument>
-                    <InArgument x:TypeArguments="s:String[]" x:Key="in_StrCcAddress">[strCcEmail.Split(";")]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">[strMailSubject]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">[strMailBody]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_StrAccount">[CStr(in_dicConfig("P003_090_TimesheetApprovals_MailAccount"))]</InArgument>
-                    <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListAttachmentPath">[new List(of string) from {strOutputFilPath}]</InArgument>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[in_dicConfig]</InArgument>
+                    <InArgument x:TypeArguments="s:String[]" x:Key="in_StrToAddress">
+                      <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="strToAddress" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="s:String[]" x:Key="in_StrCcAddress">
+                      <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="strCcEmail.Split(&quot;;&quot;)" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailSubject" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailBody" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_StrAccount">
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="CStr(in_dicConfig(&quot;P003_090_TimesheetApprovals_MailAccount&quot;))" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListAttachmentPath">
+                      <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="attchmentArray" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">
+                      <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_dicConfig" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="s:String[]" x:Key="in_BCCEmails">
+                      <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="strBCCEmail" />
+                    </InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -389,7 +497,7 @@ Select r = dt_EmailData.Rows.Add(ra)).CopyToDataTable]</InArgument>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:InvokeWorkflowFile>
-                <Assign DisplayName="Assign Not Submitted Data Flag" sap:VirtualizedContainerService.HintSize="496,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_20">
+                <Assign DisplayName="Assign Not Submitted Data Flag" sap:VirtualizedContainerService.HintSize="502,108" sap2010:WorkflowViewState.IdRef="Assign_20">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Boolean">[out_boolNoData]</OutArgument>
                   </Assign.To>
@@ -400,7 +508,7 @@ Select r = dt_EmailData.Rows.Add(ra)).CopyToDataTable]</InArgument>
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="476,357.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_13">
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,290" sap2010:WorkflowViewState.IdRef="Sequence_13">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
