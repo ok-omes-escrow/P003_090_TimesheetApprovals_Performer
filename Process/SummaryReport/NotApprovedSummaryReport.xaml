@@ -116,16 +116,16 @@
       <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This flow will creates monthly summary report for Not Approved people and send out email if it is last wednesday of the month." DisplayName="Sequence Not Approved Summary Report" sap:VirtualizedContainerService.HintSize="672.6666666666666,3821.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence sap2010:Annotation.AnnotationText="This flow will creates monthly summary report for Not Approved people and send out email if it is last wednesday of the month." DisplayName="Sequence Not Approved Summary Report" sap:VirtualizedContainerService.HintSize="610.6666666666666,3819.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch Not Approved Summary Report" sap:VirtualizedContainerService.HintSize="610.6666666666666,3665.3333333333335" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Not Approved Summary Report" sap:VirtualizedContainerService.HintSize="610.6666666666666,3751.3333333333335" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="This flow will creates monthly summary report for Not Approved people and send out email if it is last wednesday of the month." DisplayName="Not Approved Summary Report" sap:VirtualizedContainerService.HintSize="572,3426" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence sap2010:Annotation.AnnotationText="This flow will creates monthly summary report for Not Approved people and send out email if it is last wednesday of the month." DisplayName="Not Approved Summary Report" sap:VirtualizedContainerService.HintSize="544,3490.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="boolReportCreatedNow" />
             <Variable x:TypeArguments="sd:DataTable" Name="dt_WeeklyDetails" />
@@ -143,8 +143,8 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="log Not Approved Summary Report Start" sap:VirtualizedContainerService.HintSize="510,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Not approved summary report - start&quot;]" />
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will gets the last wednesday" DisplayName="GetLastWednesdayOfMonth.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="510,146" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Process\SummaryReport\GetLastWednesdayOfMonth.xaml">
+          <ui:LogMessage DisplayName="log Not Approved Summary Report Start" sap:VirtualizedContainerService.HintSize="510,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Not approved summary report - start&quot;]" />
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will gets the last wednesday" DisplayName="GetLastWednesdayOfMonth.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="510,178" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Process\SummaryReport\GetLastWednesdayOfMonth.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <OutArgument x:TypeArguments="s:DateTime" x:Key="out_DateLastWedOfMonth">[dateLastWedOfMonth]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
@@ -154,7 +154,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <Assign DisplayName="Convert to CST Not Approved" sap:VirtualizedContainerService.HintSize="510,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
+          <Assign DisplayName="Convert to CST Not Approved" sap:VirtualizedContainerService.HintSize="510,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
             <Assign.To>
               <OutArgument x:TypeArguments="s:DateTime">[dateToday]</OutArgument>
             </Assign.To>
@@ -162,7 +162,7 @@
               <InArgument x:TypeArguments="s:DateTime">[TimeZoneInfo.ConvertTimeBySystemTimeZoneId(Now,timezoneinfo.Local.Id, "Central Standard Time")]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Assign Filename Not Approved" sap:VirtualizedContainerService.HintSize="510,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign DisplayName="Assign Filename Not Approved" sap:VirtualizedContainerService.HintSize="510,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[strFileName]</OutArgument>
             </Assign.To>
@@ -170,7 +170,7 @@
               <InArgument x:TypeArguments="x:String">[CStr(in_dicConfig("NotApprovedSummaryReportFileName")).replace("{currentMonth}",dateToday.ToString("MMMM")).replace("{year}",dateToday.Year.ToString)]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Assign Filename No Time Reported" sap:VirtualizedContainerService.HintSize="510,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
+          <Assign DisplayName="Assign Filename No Time Reported" sap:VirtualizedContainerService.HintSize="510,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[strFileNamePreviousMon]</OutArgument>
             </Assign.To>
@@ -178,7 +178,7 @@
               <InArgument x:TypeArguments="x:String">[CStr(in_dicConfig("NotApprovedSummaryReportFileName")).replace("{currentMonth}",dateToday.AddMonths(-1).ToString("MMMM")).replace("{year}",dateToday.Year.ToString)]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will create the monthly summary report for not appvoed people" DisplayName="Check And Create  Not Approved Summary Report" sap:VirtualizedContainerService.HintSize="510,160.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Process\SummaryReport\CheckAndCreateSummaryReport.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will create the monthly summary report for not appvoed people" DisplayName="Check And Create  Not Approved Summary Report" sap:VirtualizedContainerService.HintSize="510,192.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Process\SummaryReport\CheckAndCreateSummaryReport.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="in_strFolderPath">[CStr(in_dicConfig("P003_090_TimesheetApprovals_SummaryFolder"))]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_strFileName">[strFileName]</InArgument>
@@ -195,7 +195,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <If Condition="[not(in_boolNoDataNotApproved)]" DisplayName="If Data Not Approved Present" sap:VirtualizedContainerService.HintSize="510,1209.3333333333333" sap2010:WorkflowViewState.IdRef="If_2">
+          <If Condition="[not(in_boolNoDataNotApproved)]" DisplayName="If Data Not Approved Present" sap:VirtualizedContainerService.HintSize="510,1243.3333333333333" sap2010:WorkflowViewState.IdRef="If_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -203,13 +203,13 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="476,1025.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="468,980.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:FilterDataTable sap2010:Annotation.AnnotationText="This will filter the required columns for not appvoed report" DataTable="[in_dt_WeeklyReport]" DisplayName="Get Not Approved Records" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,209.33333333333334" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[dt_WeeklyDetails]" SelectColumnsMode="Keep">
+                <ui:FilterDataTable sap2010:Annotation.AnnotationText="This will filter the required columns for not appvoed report" DataTable="[in_dt_WeeklyReport]" DisplayName="Get Not Approved Records" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,241.33333333333334" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[dt_WeeklyDetails]" SelectColumnsMode="Keep">
                   <ui:FilterDataTable.Filters>
                     <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                       <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
@@ -232,8 +232,8 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:FilterDataTable>
-                <ui:RemoveDuplicateRows DataTable="[dt_WeeklyDetails]" DisplayName="Remove Duplicate Rows From Weekly Report" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="RemoveDuplicateRows_1" OutputDataTable="[dt_WeeklyDetails]" />
-                <Assign DisplayName="Convert to CST Data" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <ui:RemoveDuplicateRows DataTable="[dt_WeeklyDetails]" DisplayName="Remove Duplicate Rows From Weekly Report" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="RemoveDuplicateRows_1" OutputDataTable="[dt_WeeklyDetails]" />
+                <Assign DisplayName="Convert to CST Data" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
                   <Assign.To>
                     <OutArgument x:TypeArguments="s:DateTime">[dateToday]</OutArgument>
                   </Assign.To>
@@ -241,7 +241,7 @@
                     <InArgument x:TypeArguments="s:DateTime">[TimeZoneInfo.ConvertTimeBySystemTimeZoneId(Now,timezoneinfo.Local.Id, "Central Standard Time")]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <Assign DisplayName="Assign Bool Last Run Data Not Approved" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign DisplayName="Assign Bool Last Run Data Not Approved" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Boolean">[boolLastRun]</OutArgument>
                   </Assign.To>
@@ -249,7 +249,7 @@
                     <InArgument x:TypeArguments="x:Boolean">[if(dateToday.Date=dateLastWedOfMonth.Date AndAlso dateToday.Hour&gt;=cint(cstr(in_dicConfig("P003_090_TimesheetApprovals_SummaryMailTime")).Split(":"c).First) andalso dateToday.Minute&gt;=cint(cstr(in_dicConfig("P003_090_TimesheetApprovals_SummaryMailTime")).Split(":"c).last),true,false)]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will udpate the monthly summary report for not approved report" DisplayName="Generate Not Approved Summary Report" sap:VirtualizedContainerService.HintSize="434,160.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Process\SummaryReport\GenerateSummaryReport.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will udpate the monthly summary report for not approved report" DisplayName="Generate Not Approved Summary Report" sap:VirtualizedContainerService.HintSize="434,192.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Process\SummaryReport\GenerateSummaryReport.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="x:String" x:Key="in_strSummaryReportPath">[strSummaryReportPath]</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="in_strSummaryReportSheetName">[cstr(in_dicConfig("NotApprovedSummaryReportSheetName"))]</InArgument>
@@ -268,7 +268,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:InvokeWorkflowFile>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Upload Not Approved Summary Report To Sharepoint" sap:VirtualizedContainerService.HintSize="434,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Process\Sharepoint\SaveFIleIntoSharepoint.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Upload Not Approved Summary Report To Sharepoint" sap:VirtualizedContainerService.HintSize="434,138" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Process\Sharepoint\SaveFIleIntoSharepoint.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="x:String" x:Key="in_strLocalFilepath">[strSummaryReportPath]</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="in_strTenantID">[cstr(in_DicConfig("O365TenantIDAssetName"))]</InArgument>
@@ -283,10 +283,16 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_7" />
+              <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
             </If.Else>
           </If>
-          <Assign DisplayName="Assign Bool Last Run" sap:VirtualizedContainerService.HintSize="510,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+          <Assign DisplayName="Assign Bool Last Run" sap:VirtualizedContainerService.HintSize="510,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Boolean">[boolLastRun]</OutArgument>
             </Assign.To>
@@ -294,14 +300,14 @@
               <InArgument x:TypeArguments="x:Boolean">[if(dateToday.Date=dateLastWedOfMonth.Date AndAlso dateToday.Hour&gt;=cint(cstr(in_dicConfig("P003_090_TimesheetApprovals_SummaryMailTime")).Split(":"c).First) andalso dateToday.Minute&gt;=cint(cstr(in_dicConfig("P003_090_TimesheetApprovals_SummaryMailTime")).Split(":"c).last),true,false)]</InArgument>
             </Assign.Value>
           </Assign>
-          <If Condition="[(dateToday.Date=dateLastWedOfMonth.Date AndAlso dateToday.Hour&gt;=cint(cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SummaryMailTime&quot;)).Split(&quot;:&quot;c).First) andalso dateToday.Minute&gt;=cint(cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SummaryMailTime&quot;)).Split(&quot;:&quot;c).last))]" DisplayName="If Last Wed Last Run" sap:VirtualizedContainerService.HintSize="510,763.3333333333334" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[(dateToday.Date=dateLastWedOfMonth.Date AndAlso dateToday.Hour&gt;=cint(cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SummaryMailTime&quot;)).Split(&quot;:&quot;c).First) andalso dateToday.Minute&gt;=cint(cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SummaryMailTime&quot;)).Split(&quot;:&quot;c).last))]" DisplayName="If Last Wed Last Run" sap:VirtualizedContainerService.HintSize="510,980.6666666666666" sap2010:WorkflowViewState.IdRef="If_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="476,579.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="476,579.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="s:String[]" Name="strEmailCC" />
                 </Sequence.Variables>
@@ -337,27 +343,13 @@ CStr(in_dicConfig("NotApprovedSummaryReportFileName")).replace("{currentMonth}",
                 </Assign>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will send out email for not appvoed summary report" DisplayName="SendMail Not Approved Summary.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Process\Send Email\SendMail.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="s:String[]" x:Key="in_StrToAddress">
-                      <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="cstr(in_DicConfig(&quot;P003_090_TimesheetApprovals_SummaryMailTo&quot;)).Split(&quot;;&quot;)" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="s:String[]" x:Key="in_StrCcAddress">
-                      <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="strEmailCC" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;NotApprovedSummaryMailSubject&quot;)).Replace(&quot;{month}&quot;,now.ToString(&quot;MMMM&quot;)).Replace(&quot;{year}&quot;,now.ToString(&quot;yyyy&quot;))" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_DicConfig(&quot;P003_090_TimesheetApprovals_NotApprovedSummaryMailBody&quot;)).Replace(&quot;{month}&quot;,now.ToString(&quot;MMMM&quot;)).Replace(&quot;{year}&quot;,now.ToString(&quot;yyyy&quot;))" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_StrAccount">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="CStr(in_DicConfig(&quot;P003_090_TimesheetApprovals_MailAccount&quot;))" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListAttachmentPath">
-                      <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="new List(of string) from {strSummaryReportPath}" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">
-                      <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_dicConfig" />
-                    </InArgument>
+                    <InArgument x:TypeArguments="s:String[]" x:Key="in_StrToAddress">[cstr(in_DicConfig("P003_090_TimesheetApprovals_SummaryMailTo")).Split(";")]</InArgument>
+                    <InArgument x:TypeArguments="s:String[]" x:Key="in_StrCcAddress">[strEmailCC]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">[cstr(in_dicConfig("NotApprovedSummaryMailSubject")).Replace("{month}",now.ToString("MMMM")).Replace("{year}",now.ToString("yyyy"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">[cstr(in_DicConfig("P003_090_TimesheetApprovals_NotApprovedSummaryMailBody")).Replace("{month}",now.ToString("MMMM")).Replace("{year}",now.ToString("yyyy"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_StrAccount">[CStr(in_DicConfig("P003_090_TimesheetApprovals_MailAccount"))]</InArgument>
+                    <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListAttachmentPath">[new List(of string) from {strSummaryReportPath}]</InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[in_dicConfig]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -368,7 +360,7 @@ CStr(in_dicConfig("NotApprovedSummaryReportFileName")).replace("{currentMonth}",
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="376,229" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="376,229" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>

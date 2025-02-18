@@ -112,16 +112,16 @@
       <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This flow will creates monthly summary report for NotSubmitted employees and send out email if it is last wednesday of the month." DisplayName="Sequence Not Submitted Summary Report" sap:VirtualizedContainerService.HintSize="672.6666666666666,3680.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence sap2010:Annotation.AnnotationText="This flow will creates monthly summary report for NotSubmitted employees and send out email if it is last wednesday of the month." DisplayName="Sequence Not Submitted Summary Report" sap:VirtualizedContainerService.HintSize="610,3496" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch Not Submitted Summary Report" sap:VirtualizedContainerService.HintSize="610.6666666666666,3524.6666666666665" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Not Submitted Summary Report" sap:VirtualizedContainerService.HintSize="610,3428" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="This flow will creates monthly summary report for NotSubmitted employees and send out email if it is last wednesday of the month." DisplayName="Not Submitted Summary Report" sap:VirtualizedContainerService.HintSize="572,3286" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence sap2010:Annotation.AnnotationText="This flow will creates monthly summary report for NotSubmitted employees and send out email if it is last wednesday of the month." DisplayName="Not Submitted Summary Report" sap:VirtualizedContainerService.HintSize="544,3168" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="boolReportCreatedNow" />
             <Variable x:TypeArguments="sd:DataTable" Default="[new DataTable]" Name="dt_WeeklyDetails" />
@@ -139,8 +139,8 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Start Message Not Submitted" sap:VirtualizedContainerService.HintSize="510,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Not submitted summary report has started&quot;]" />
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will get the last wednessday of the month" DisplayName="Get Last Wed Not Submitted" sap:VirtualizedContainerService.HintSize="510,146" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Process\SummaryReport\GetLastWednesdayOfMonth.xaml">
+          <ui:LogMessage DisplayName="Log Start Message Not Submitted" sap:VirtualizedContainerService.HintSize="510,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Not submitted summary report has started&quot;]" />
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will get the last wednessday of the month" DisplayName="Get Last Wed Not Submitted" sap:VirtualizedContainerService.HintSize="510,178" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Process\SummaryReport\GetLastWednesdayOfMonth.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <OutArgument x:TypeArguments="s:DateTime" x:Key="out_DateLastWedOfMonth">[dateLastWedOfMonth]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
@@ -272,30 +272,14 @@
                 </ui:InvokeWorkflowFile>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Upload Not Submitted Summary Report To Sharepoint" sap:VirtualizedContainerService.HintSize="434,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Process\Sharepoint\SaveFIleIntoSharepoint.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strLocalFilepath">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strSummaryReportPath" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strTenantID">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;O365TenantIDAssetName&quot;))" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationID">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;O365ApplicationIDAssetName&quot;))" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationSecretName">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;O365ApplicationSecretAssetName&quot;))" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strSharePtURL">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SPURL&quot;))" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strSharepointParentFolder">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="if(strFileName.contains(dateToday.AddMonths(-1).ToString(&quot;MMMM&quot;)),cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SPRootFolder&quot;))+&quot;/AgencyData/&quot;+in_AgencyCode+&quot;/&quot;+dateToday.AddMonths(-1).ToString(&quot;yyyy&quot;)+&quot;/&quot;+dateToday.AddMonths(-1).ToString(&quot;MMMM&quot;),cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SPRootFolder&quot;))+&quot;/AgencyData/&quot;+in_AgencyCode+&quot;/&quot;+dateToday.ToString(&quot;yyyy&quot;)+&quot;/&quot;+dateToday.ToString(&quot;MMMM&quot;))" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strOrchestratorFolderpath">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;O365AssetsInOrchestratorFolder&quot;))" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strException">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_dicConfig(&quot;SaveFileSPSE&quot;))" />
-                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strLocalFilepath">[strSummaryReportPath]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strTenantID">[cstr(in_dicConfig("O365TenantIDAssetName"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationID">[cstr(in_dicConfig("O365ApplicationIDAssetName"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strApplicationSecretName">[cstr(in_dicConfig("O365ApplicationSecretAssetName"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strSharePtURL">[cstr(in_dicConfig("P003_090_TimesheetApprovals_SPURL"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strSharepointParentFolder">[if(strFileName.contains(dateToday.AddMonths(-1).ToString("MMMM")),cstr(in_dicConfig("P003_090_TimesheetApprovals_SPRootFolder"))+"/AgencyData/"+in_AgencyCode+"/"+dateToday.AddMonths(-1).ToString("yyyy")+"/"+dateToday.AddMonths(-1).ToString("MMMM"),cstr(in_dicConfig("P003_090_TimesheetApprovals_SPRootFolder"))+"/AgencyData/"+in_AgencyCode+"/"+dateToday.ToString("yyyy")+"/"+dateToday.ToString("MMMM"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strOrchestratorFolderpath">[cstr(in_dicConfig("O365AssetsInOrchestratorFolder"))]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_strException">[cstr(in_dicConfig("SaveFileSPSE"))]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </Sequence>
@@ -304,7 +288,7 @@
               <Sequence sap2010:WorkflowViewState.IdRef="Sequence_7" />
             </If.Else>
           </If>
-          <Assign DisplayName="Assign Bool Last Run Not Submitted" sap:VirtualizedContainerService.HintSize="510,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
+          <Assign DisplayName="Assign Bool Last Run Not Submitted" sap:VirtualizedContainerService.HintSize="510,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Boolean">[boolLastRun]</OutArgument>
             </Assign.To>
@@ -312,15 +296,15 @@
               <InArgument x:TypeArguments="x:Boolean">[if(now.Date=dateLastWedOfMonth.Date AndAlso dateToday.Hour&gt;=cint(cstr(in_dicConfig("P003_090_TimesheetApprovals_SummaryMailTime")).Split(":"c).First) andalso dateToday.Minute&gt;=cint(cstr(in_dicConfig("P003_090_TimesheetApprovals_SummaryMailTime")).Split(":"c).last),true,false)]</InArgument>
             </Assign.Value>
           </Assign>
-          <If Condition="[(dateToday.Date=dateLastWedOfMonth.Date AndAlso dateToday.Hour&gt;=cint(cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SummaryMailTime&quot;)).Split(&quot;:&quot;c).First) andalso dateToday.Minute&gt;=cint(cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SummaryMailTime&quot;)).Split(&quot;:&quot;c).last))]" DisplayName="If Last Wed Last Run" sap:VirtualizedContainerService.HintSize="510,638" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[(dateToday.Date=dateLastWedOfMonth.Date AndAlso dateToday.Hour&gt;=cint(cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SummaryMailTime&quot;)).Split(&quot;:&quot;c).First) andalso dateToday.Minute&gt;=cint(cstr(in_dicConfig(&quot;P003_090_TimesheetApprovals_SummaryMailTime&quot;)).Split(&quot;:&quot;c).last))]" DisplayName="If Last Wed Last Run" sap:VirtualizedContainerService.HintSize="510,834.6666666666666" sap2010:WorkflowViewState.IdRef="If_1">
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="476,454" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="468,433.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign DisplayName="Assign Filename Not Submitted" sap:VirtualizedContainerService.HintSize="434,86" sap2010:WorkflowViewState.IdRef="Assign_8">
+                <Assign DisplayName="Assign Filename Not Submitted" sap:VirtualizedContainerService.HintSize="434,118" sap2010:WorkflowViewState.IdRef="Assign_8">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[strSummaryReportPath]</OutArgument>
                   </Assign.To>
@@ -329,7 +313,7 @@
 CStr(in_dicConfig("NotSubmittedSummaryReportFileName")).replace("{currentMonth}",dateToday.ToString("MMMM")).replace("{year}",dateToday.Year.ToString))]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <Assign DisplayName="Assign Full filepath Not submitted" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_10">
+                <Assign DisplayName="Assign Full filepath Not submitted" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_10">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[strSummaryReportPath]</OutArgument>
                   </Assign.To>
@@ -337,7 +321,7 @@ CStr(in_dicConfig("NotSubmittedSummaryReportFileName")).replace("{currentMonth}"
                     <InArgument x:TypeArguments="x:String">[cstr(in_dicConfig("LocalFolderPath"))+"\"+strSummaryReportPath]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Process\Send Email\SendMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Process\Send Email\SendMail.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Process\Send Email\SendMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,138" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Process\Send Email\SendMail.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="s:String[]" x:Key="in_StrToAddress">[cstr(in_dicConfig("P003_090_TimesheetApprovals_SummaryMailTo")).Split(";")]</InArgument>
                     <InArgument x:TypeArguments="s:String[]" x:Key="in_StrCcAddress">[cstr(in_dicConfig("P003_090_TimesheetApprovals_SummaryMailCC")).Split(";")]</InArgument>
@@ -351,7 +335,7 @@ CStr(in_dicConfig("NotSubmittedSummaryReportFileName")).replace("{currentMonth}"
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="376,229" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="376,229" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>

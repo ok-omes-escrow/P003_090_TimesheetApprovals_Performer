@@ -142,16 +142,16 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml checks whether monthly summary  report for no time reported exists for current month or not. If not exists creates a report&#xA;PreCondition: Excel is installed in machine and access to summary folder&#xA;Post Condition: Report gets created." DisplayName="Sequence Check And Create  Monthly Summary Report" sap:VirtualizedContainerService.HintSize="672.6666666666666,6189.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml checks whether monthly summary  report for no time reported exists for current month or not. If not exists creates a report&#xA;PreCondition: Excel is installed in machine and access to summary folder&#xA;Post Condition: Report gets created." DisplayName="Sequence Check And Create  Monthly Summary Report" sap:VirtualizedContainerService.HintSize="610.6666666666666,5760.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch Check And Create  Monthly Summary Report" sap:VirtualizedContainerService.HintSize="610.6666666666666,6000" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Check And Create  Monthly Summary Report" sap:VirtualizedContainerService.HintSize="610.6666666666666,5659.333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="Description: This xaml checks whether monthly summary  report for no time reported exists for current month or not. If not exists creates a report&#xA;PreCondition: Excel is installed in machine and access to summary folder&#xA;Post Condition: Report gets created." DisplayName="Check And Create  Monthly Summary Report" sap:VirtualizedContainerService.HintSize="572,5760.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence sap2010:Annotation.AnnotationText="Description: This xaml checks whether monthly summary  report for no time reported exists for current month or not. If not exists creates a report&#xA;PreCondition: Excel is installed in machine and access to summary folder&#xA;Post Condition: Report gets created." DisplayName="Check And Create  Monthly Summary Report" sap:VirtualizedContainerService.HintSize="544,5398.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="strFileName" />
             <Variable x:TypeArguments="x:String" Name="strFolderPath" />
@@ -169,7 +169,7 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Create Summary Report Start " sap:VirtualizedContainerService.HintSize="510,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Check existence and create summary report for current month has started&quot;]" />
+          <ui:LogMessage DisplayName="Log Create Summary Report Start " sap:VirtualizedContainerService.HintSize="510,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Check existence and create summary report for current month has started&quot;]" />
           <ui:MultipleAssign DisplayName="Assign Config Variables To Local" sap:VirtualizedContainerService.HintSize="510,162" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
@@ -210,7 +210,7 @@
             </sap:WorkflowViewStateService.ViewState>
           </l:Files_or_Folders_Exist>
           <ui:LogMessage DisplayName="Log Summary Report Path" sap:VirtualizedContainerService.HintSize="510,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Report exists for current month: &quot;+cstr(boolFileExists)]" />
-          <Assign DisplayName="get current cst time" sap:VirtualizedContainerService.HintSize="510,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign DisplayName="get current cst time" sap:VirtualizedContainerService.HintSize="510,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
             <Assign.To>
               <OutArgument x:TypeArguments="s:DateTime">[dateCST]</OutArgument>
             </Assign.To>
@@ -218,16 +218,16 @@
               <InArgument x:TypeArguments="s:DateTime">[TimeZoneInfo.ConvertTimeBySystemTimeZoneId(now,TimeZoneInfo.Local.Id,"Central Standard Time")]</InArgument>
             </Assign.Value>
           </Assign>
-          <If Condition="[boolFileExists]" DisplayName="If Summary Report File Exists" sap:VirtualizedContainerService.HintSize="510,4106" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[boolFileExists]" DisplayName="If Summary Report File Exists" sap:VirtualizedContainerService.HintSize="510,3970.6666666666665" sap2010:WorkflowViewState.IdRef="If_1">
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="476,1861.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="468,1738" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="log file exists" sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Report exists for current month&quot;]" />
-                <Assign DisplayName="Assign strParentFolderPath PreviousMonth" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <ui:LogMessage DisplayName="log file exists" sap:VirtualizedContainerService.HintSize="434,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Report exists for current month&quot;]" />
+                <Assign DisplayName="Assign strParentFolderPath PreviousMonth" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[strParentFolderPath]</OutArgument>
                   </Assign.To>
@@ -264,7 +264,7 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="476,2060.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="476,2060.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>

@@ -12,6 +12,8 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "in_OrchestratorQueueName&StateMachine_1",
+        "in_OrchestratorQueueFolder&StateMachine_1",
         "ShouldStop&Sequence_25",
         "TransactionItem&StateMachine_1",
         "SystemException&StateMachine_1",
@@ -25,10 +27,7 @@
         "dt_TransactionData&StateMachine_1",
         "ConsecutiveSystemExceptions&StateMachine_1"
       ],
-      "ArgumentsSectionElementsOrder": [
-        "in_OrchestratorQueueName",
-        "in_OrchestratorQueueFolder"
-      ],
+      "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     },
@@ -111,6 +110,10 @@
       "Path": "Process/SummaryReport/NoTimeReportedSummaryReport.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "ToEmailArry&Sequence_2",
+        "strToAddress&Sequence_2",
+        "strBCCEmail&Sequence_2",
+        "attchmentArray&Sequence_1",
         "strFileNamePreviousMon&Sequence_1",
         "dateCST&Sequence_1",
         "dateToday&Sequence_1",
@@ -122,6 +125,8 @@
         "boolLastRun&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_BCC",
+        "in_Attachment",
         "in_AgencyCode",
         "in_boolNoDataNoTimeReport",
         "in_dicConfig",
@@ -160,6 +165,11 @@
       "Path": "Process/WeeklyReports/CreateWeeklyNoTimeReportedReport.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "strArryExclusionSupervisor&Sequence_8",
+        "strArryExclusionUser&Sequence_8",
+        "attchmentArray&Sequence_9",
+        "strBCCEmail&Sequence_9",
+        "strToAddress&Sequence_9",
         "dt_InputData&Sequence_1",
         "dt_OutputData&Sequence_1",
         "strWeekCount&Sequence_1",
@@ -175,6 +185,10 @@
         "dt_OutputDataClone&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_ExclusionSupervisor",
+        "in_ExclusionUser",
+        "in_Attachment",
+        "in_EmailBCC",
         "in_OutgoingEmailCC",
         "in_PayrollEmails",
         "in_AgencyCode",
@@ -245,8 +259,11 @@
       "Path": "Process/WeeklyReports/CreateWeeklyNotApprovedReport.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "strAwaitingEmail&Sequence_6",
-        "strOutputReportPath&Sequence_1",
+        "strArryExclusionSupervisor&Sequence_6",
+        "strArryExclusionUser&Sequence_6",
+        "strToAddress&Sequence_7",
+        "strBCCEmail&Sequence_7",
+        "attchmentArray&Sequence_7",
         "dt_InputData&Sequence_1",
         "dt_OutputData&Sequence_1",
         "strToEmail&Sequence_1",
@@ -255,9 +272,15 @@
         "strWeekCount&Sequence_1",
         "strMailSubject&Sequence_1",
         "strMailBody&Sequence_1",
-        "boolPayCycleWeek&Sequence_1"
+        "boolPayCycleWeek&Sequence_1",
+        "strOutputReportPath&Sequence_1",
+        "strAwaitingEmail&Sequence_6"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_ExclusionSupervisor",
+        "in_ExclusionUser",
+        "in_EmailBCC",
+        "in_attachment",
         "in_OutgoingEmailCC",
         "in_EmailCC",
         "in_strAgencyCode",
@@ -287,6 +310,7 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
+        "in_BCCEmails",
         "in_dicConfig",
         "in_ListAttachmentPath",
         "in_StrToAddress",
@@ -302,6 +326,11 @@
       "Path": "Process/WeeklyReports/CreateWeeklyNotSubmittedReport.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "strArryExclusionSupervisor&Sequence_11",
+        "strArryExclusionUser&Sequence_11",
+        "attchmentArray&Sequence_12",
+        "strBCCEmail&Sequence_12",
+        "strToAddress&Sequence_12",
         "dt_EmailData&Sequence_11",
         "intCount&Sequence_11",
         "dt_InputData&Sequence_1",
@@ -317,14 +346,18 @@
         "strOutputFilPath&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
-        "in_OutgoingEmailCC",
-        "in_PayrollEmails",
-        "in_AgencyCode",
-        "in_dicConfig",
-        "out_boolNoData",
         "in_StrReportPath",
         "in_StrReportSheetName",
-        "out_dt_Output"
+        "out_dt_Output",
+        "out_boolNoData",
+        "in_dicConfig",
+        "in_AgencyCode",
+        "in_PayrollEmails",
+        "in_OutgoingEmailCC",
+        "in_attachment",
+        "in_emailbcc",
+        "in_exclusionUser",
+        "in_exclusionSupervisor"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null

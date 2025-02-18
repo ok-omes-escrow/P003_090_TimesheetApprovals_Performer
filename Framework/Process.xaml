@@ -138,7 +138,7 @@
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This automation will assist HR team with sending reminder emails to the employees and their supervisor of the time they have not entered in Workday. Automation to login to Workday to pull the list of employees who have not entered their time for the previous week and send out mass reminder email to all the employees excluding executive level &amp; Contractors" DisplayName="Process" sap:VirtualizedContainerService.HintSize="927.9999999999999,3076" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This automation will assist HR team with sending reminder emails to the employees and their supervisor of the time they have not entered in Workday. Automation to login to Workday to pull the list of employees who have not entered their time for the previous week and send out mass reminder email to all the employees excluding executive level &amp; Contractors" DisplayName="Process" sap:VirtualizedContainerService.HintSize="3076,2977" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strInputFilePath" />
       <Variable x:TypeArguments="x:String" Name="strRequestType" />
@@ -156,8 +156,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="512.6666666666666,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Timesheet Entry Approval Reminders Perfomer Started &quot;]" />
-    <l:Download_File sap2010:Annotation.AnnotationText="This will download the Corresponsing report from the sharepoint." DisplayName="Download File Report File" sap:VirtualizedContainerService.HintSize="512.6666666666666,696" sap2010:WorkflowViewState.IdRef="Download_File_2" in_strApplicationIDAssetName="[cstr(in_Config(&quot;O365ApplicationIDAssetName&quot;))]" in_strApplicationSecretAsset="[cstr(in_Config(&quot;O365ApplicationSecretAssetName&quot;))]" in_strDelay="[cstr(in_Config(&quot;Timeout&quot;))]" in_strLocalFilePath="[cstr(in_Config(&quot;LocalFolderPath&quot;))]" in_strOrchestratorFolderPath="[cstr(in_Config(&quot;O365AssetsInOrchestratorFolder&quot;))]" in_strParentDriveItemOptional="[Nothing]" in_strSharepointURL="[cstr(in_Config(&quot;P003_090_TimesheetApprovals_SPURL&quot;))]" in_strSpParentFolderPath="[cstr(in_TransactionItem.SpecificContent(&quot;FilePath&quot;))]" in_strTenantIDAssetName="[cstr(in_Config(&quot;O365TenantIDAssetName&quot;))]" out_boolFileDownloaded="[boolInputDownloaded]" out_strDownloadedFilePath="[strInputFilePath]">
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="512,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Timesheet Entry Approval Reminders Perfomer Started &quot;]" />
+    <l:Download_File sap2010:Annotation.AnnotationText="This will download the Corresponsing report from the sharepoint." DisplayName="Download File Report File" sap:VirtualizedContainerService.HintSize="512,674" sap2010:WorkflowViewState.IdRef="Download_File_2" in_strApplicationIDAssetName="[cstr(in_Config(&quot;O365ApplicationIDAssetName&quot;))]" in_strApplicationSecretAsset="[cstr(in_Config(&quot;O365ApplicationSecretAssetName&quot;))]" in_strDelay="[cstr(in_Config(&quot;Timeout&quot;))]" in_strLocalFilePath="[cstr(in_Config(&quot;LocalFolderPath&quot;))]" in_strOrchestratorFolderPath="[cstr(in_Config(&quot;O365AssetsInOrchestratorFolder&quot;))]" in_strParentDriveItemOptional="[Nothing]" in_strSharepointURL="[cstr(in_Config(&quot;P003_090_TimesheetApprovals_SPURL&quot;))]" in_strSpParentFolderPath="[cstr(in_TransactionItem.SpecificContent(&quot;FilePath&quot;))]" in_strTenantIDAssetName="[cstr(in_Config(&quot;O365TenantIDAssetName&quot;))]" out_boolFileDownloaded="[boolInputDownloaded]" out_strDownloadedFilePath="[strInputFilePath]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -166,7 +166,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </l:Download_File>
-    <ui:MultipleAssign DisplayName="Assig Queue Data To Local Params" sap:VirtualizedContainerService.HintSize="512.6666666666666,163.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Assig Queue Data To Local Params" sap:VirtualizedContainerService.HintSize="512,164" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -188,7 +188,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <If sap2010:Annotation.AnnotationText="This will checks whether report file exists or not" Condition="[not(boolInputDownloaded) OrElse not(System.IO.File.Exists(strInputFilePath))]" DisplayName="If Report Fie Not Exists" sap:VirtualizedContainerService.HintSize="512.6666666666666,781.3333333333334" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap2010:Annotation.AnnotationText="This will checks whether report file exists or not" Condition="[not(boolInputDownloaded) OrElse not(System.IO.File.Exists(strInputFilePath))]" DisplayName="If Report Fie Not Exists" sap:VirtualizedContainerService.HintSize="512,771" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -197,28 +197,28 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,351.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,346" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Throw DisplayName="Throw File Not Found" Exception="[new SystemException(in_Config(&quot;SE_FileNotFound&quot;).ToString+&quot; &quot;+cstr(in_TransactionItem.SpecificContent(&quot;FilePath&quot;)))]" sap:VirtualizedContainerService.HintSize="382,124" sap2010:WorkflowViewState.IdRef="Throw_2" />
-          <ui:LogMessage DisplayName="Log Message File Not Found" sap:VirtualizedContainerService.HintSize="382,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;FIle not found at &quot;+cstr(in_TransactionItem.SpecificContent(&quot;FilePath&quot;))]" />
+          <Throw DisplayName="Throw File Not Found" Exception="[new SystemException(in_Config(&quot;SE_FileNotFound&quot;).ToString+&quot; &quot;+cstr(in_TransactionItem.SpecificContent(&quot;FilePath&quot;)))]" sap:VirtualizedContainerService.HintSize="382,122" sap2010:WorkflowViewState.IdRef="Throw_2" />
+          <ui:LogMessage DisplayName="Log Message File Not Found" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;FIle not found at &quot;+cstr(in_TransactionItem.SpecificContent(&quot;FilePath&quot;))]" />
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message File Downloaded" sap:VirtualizedContainerService.HintSize="382,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;File has downlaoded successfully from sharepoint&quot;]" />
+          <ui:LogMessage DisplayName="Log Message File Downloaded" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;File has downlaoded successfully from sharepoint&quot;]" />
         </Sequence>
       </If.Else>
     </If>
-    <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="This flow will redirects based the type of the report like NotimeReported, NotSubmitted,NotApproved." DisplayName="Execute Respective Report" Expression="[strRequestType]" sap:VirtualizedContainerService.HintSize="512.6666666666666,1006.6666666666666" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+    <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="This flow will redirects based the type of the report like NotimeReported, NotSubmitted,NotApproved." DisplayName="Execute Respective Report" Expression="[strRequestType]" sap:VirtualizedContainerService.HintSize="512,977" sap2010:WorkflowViewState.IdRef="Switch`1_1">
       <Switch.Default>
         <Throw DisplayName="Throw Invalid Request Type Exception" Exception="[new BusinessRuleException(in_Config(&quot;BE_InvalidReqType&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
       </Switch.Default>
@@ -229,7 +229,7 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence x:Key="NoTimeReported" sap2010:Annotation.AnnotationText="This will process no time reported flow" DisplayName="No Time Reported" sap:VirtualizedContainerService.HintSize="472.6666666666667,706" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence x:Key="NoTimeReported" sap2010:Annotation.AnnotationText="This will process no time reported flow" DisplayName="No Time Reported" sap:VirtualizedContainerService.HintSize="472,684" sap2010:WorkflowViewState.IdRef="Sequence_2">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:Boolean" Name="boolNoDataNoTimeReport" />
         </Sequence.Variables>
@@ -240,7 +240,7 @@
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will create weekly report for no time reported employees" DisplayName="No Time Reported Report Creation" sap:VirtualizedContainerService.HintSize="438.6666666666667,192.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Process\WeeklyReports\CreateWeeklyNoTimeReportedReport.xaml">
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will create weekly report for no time reported employees" DisplayName="No Time Reported Report Creation" sap:VirtualizedContainerService.HintSize="438,187" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Process\WeeklyReports\CreateWeeklyNoTimeReportedReport.xaml">
           <ui:InvokeWorkflowFile.Arguments>
             <InArgument x:TypeArguments="x:String" x:Key="in_StrReportPath">
               <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strInputFilePath" />
@@ -272,6 +272,12 @@
             <InArgument x:TypeArguments="x:Boolean" x:Key="in_Attachment">
               <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="convert.ToBoolean(in_TransactionItem.SpecificContent(&quot;Attachment&quot;))" />
             </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_ExclusionUser">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;ExclusionUser&quot;))" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_ExclusionSupervisor">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;ExclusionSupervisor&quot;))" />
+            </InArgument>
           </ui:InvokeWorkflowFile.Arguments>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -281,7 +287,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:InvokeWorkflowFile>
-        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.6666666666667,422.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,406" sap2010:WorkflowViewState.IdRef="TryCatch_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -289,7 +295,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <TryCatch.Try>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will generates summary report for no time reported employees" DisplayName="No Time Reported Summary Report Creation" sap:VirtualizedContainerService.HintSize="337.3333333333333,160.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Process\SummaryReport\NoTimeReportedSummaryReport.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will generates summary report for no time reported employees" DisplayName="No Time Reported Summary Report Creation" sap:VirtualizedContainerService.HintSize="334,155" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Process\SummaryReport\NoTimeReportedSummaryReport.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_WeeklyDetails">[dt_NoTimeReported]</InArgument>
                 <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[in_Config]</InArgument>
@@ -306,7 +312,7 @@
             </ui:InvokeWorkflowFile>
           </TryCatch.Try>
           <TryCatch.Catches>
-            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -317,21 +323,21 @@
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                 </ActivityAction.Argument>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot; Error in summary report &quot;+exception.Message]" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot; Error in summary report &quot;+exception.Message]" />
               </ActivityAction>
             </Catch>
           </TryCatch.Catches>
         </TryCatch>
       </Sequence>
-      <Sequence x:Key="NotSubmitted" sap2010:Annotation.AnnotationText="This will process not submitted flow." DisplayName="Not Submitted" sap:VirtualizedContainerService.HintSize="416,56" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence x:Key="NotSubmitted" sap2010:Annotation.AnnotationText="This will process not submitted flow." DisplayName="Not Submitted" sap:VirtualizedContainerService.HintSize="472,684" sap2010:WorkflowViewState.IdRef="Sequence_3">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will creates weekly report for not submitted employees" DisplayName="Not Submitted Report Creation" sap:VirtualizedContainerService.HintSize="438.6666666666667,192.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Process\WeeklyReports\CreateWeeklyNotSubmittedReport.xaml">
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will creates weekly report for not submitted employees" DisplayName="Not Submitted Report Creation" sap:VirtualizedContainerService.HintSize="438,187" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Process\WeeklyReports\CreateWeeklyNotSubmittedReport.xaml">
           <ui:InvokeWorkflowFile.Arguments>
             <InArgument x:TypeArguments="x:String" x:Key="in_StrReportPath">
               <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strInputFilePath" />
@@ -363,6 +369,12 @@
             <InArgument x:TypeArguments="x:Boolean" x:Key="in_emailbcc">
               <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="convert.ToBoolean(in_TransactionItem.SpecificContent(&quot;BCC&quot;))" />
             </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_exclusionUser">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;ExclusionUser&quot;))" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_exclusionSupervisor">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;ExclusionSupervisor&quot;))" />
+            </InArgument>
           </ui:InvokeWorkflowFile.Arguments>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -370,9 +382,9 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:InvokeWorkflowFile>
-        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.6666666666667,422.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,406" sap2010:WorkflowViewState.IdRef="TryCatch_2">
           <TryCatch.Try>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will creates monthly summary report for not submitted employees" DisplayName="Not Submitted Summary Report Creation" sap:VirtualizedContainerService.HintSize="334,160.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Process\SummaryReport\NotSubmittedSummaryReport.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will creates monthly summary report for not submitted employees" DisplayName="Not Submitted Summary Report Creation" sap:VirtualizedContainerService.HintSize="334,155" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Process\SummaryReport\NotSubmittedSummaryReport.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_WeeklyReport">[dt_NotSubmitted]</InArgument>
                 <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[in_Config]</InArgument>
@@ -388,7 +400,7 @@
             </ui:InvokeWorkflowFile>
           </TryCatch.Try>
           <TryCatch.Catches>
-            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -399,13 +411,13 @@
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                 </ActivityAction.Argument>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot; Error in summary report &quot;+exception.Message]" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot; Error in summary report &quot;+exception.Message]" />
               </ActivityAction>
             </Catch>
           </TryCatch.Catches>
         </TryCatch>
       </Sequence>
-      <Sequence x:Key="NotApproved" sap2010:Annotation.AnnotationText="This will process not approved flow" DisplayName="Not Approved" sap:VirtualizedContainerService.HintSize="472.6666666666667,690" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <Sequence x:Key="NotApproved" sap2010:Annotation.AnnotationText="This will process not approved flow" DisplayName="Not Approved" sap:VirtualizedContainerService.HintSize="472,673" sap2010:WorkflowViewState.IdRef="Sequence_4">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -413,7 +425,7 @@
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Thi will creates weekly report for not approved people" DisplayName="Not Approved Report Creation" sap:VirtualizedContainerService.HintSize="438.6666666666667,178" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Process\WeeklyReports\CreateWeeklyNotApprovedReport.xaml">
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Thi will creates weekly report for not approved people" DisplayName="Not Approved Report Creation" sap:VirtualizedContainerService.HintSize="438,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Process\WeeklyReports\CreateWeeklyNotApprovedReport.xaml">
           <ui:InvokeWorkflowFile.Arguments>
             <InArgument x:TypeArguments="x:String" x:Key="in_strReportPath">
               <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strInputFilePath" />
@@ -445,6 +457,12 @@
             <InArgument x:TypeArguments="x:Boolean" x:Key="in_EmailBCC">
               <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="convert.ToBoolean(in_TransactionItem.SpecificContent(&quot;BCC&quot;))" />
             </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_ExclusionUser">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;ExclusionUser&quot;))" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_ExclusionSupervisor">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;ExclusionSupervisor&quot;))" />
+            </InArgument>
           </ui:InvokeWorkflowFile.Arguments>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -454,9 +472,9 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:InvokeWorkflowFile>
-        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.6666666666667,421.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,406" sap2010:WorkflowViewState.IdRef="TryCatch_3">
           <TryCatch.Try>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will creates summary report for not approved people" DisplayName="Not Approved Summary Report Creation" sap:VirtualizedContainerService.HintSize="334,160.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Process\SummaryReport\NotApprovedSummaryReport.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will creates summary report for not approved people" DisplayName="Not Approved Summary Report Creation" sap:VirtualizedContainerService.HintSize="334,155" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Process\SummaryReport\NotApprovedSummaryReport.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[in_Config]</InArgument>
                 <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_WeeklyReport">[dt_NotApproved]</InArgument>
@@ -471,7 +489,7 @@
             </ui:InvokeWorkflowFile>
           </TryCatch.Try>
           <TryCatch.Catches>
-            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.6666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -489,6 +507,6 @@
         </TryCatch>
       </Sequence>
     </Switch>
-    <ui:LogMessage DisplayName="Log Message Process End" sap:VirtualizedContainerService.HintSize="512.6666666666666,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Timesheet entry approval reminders perfomer started process has completed&quot;]" />
+    <ui:LogMessage DisplayName="Log Message Process End" sap:VirtualizedContainerService.HintSize="512,164" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Timesheet entry approval reminders perfomer started process has completed&quot;]" />
   </Sequence>
 </Activity>
