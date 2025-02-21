@@ -10,13 +10,14 @@
     "UiPath.System.Activities": "[23.4.5]",
     "UiPath.Testing.Activities": "[23.4.1]",
     "UiPath.UIAutomation.Activities": "[23.4.8]",
-    "UiPath.WebAPI.Activities": "[1.18.0]"
+    "UiPath.WebAPI.Activities": "[1.18.0]",
+    "UiPathTeam.DatatablesSetOrdinal.Activities": "[2.0.0]"
   },
   "webServices": [],
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "23.4.5.0",
-  "projectVersion": "1.0.14",
+  "projectVersion": "1.0.15",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,

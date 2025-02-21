@@ -12,6 +12,11 @@
     <x:Property Name="in_Attachment" Type="InArgument(x:Boolean)" />
     <x:Property Name="in_ExclusionUser" Type="InArgument(x:String)" />
     <x:Property Name="in_ExclusionSupervisor" Type="InArgument(x:String)" />
+    <x:Property Name="in_SplitNoTime" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_NoTimeUserSubject" Type="InArgument(x:String)" />
+    <x:Property Name="in_NoTimeSupervisorSubject" Type="InArgument(x:String)" />
+    <x:Property Name="in_NoTimeUserBody" Type="InArgument(x:String)" />
+    <x:Property Name="in_NoTimeSupervisorBody" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -130,14 +135,14 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml works on No time reported weekly mails&#xA;" DisplayName="Sequence No Time Reported Report Creation And Sending Reminders" sap:VirtualizedContainerService.HintSize="3076,8984" sap2010:WorkflowViewState.IdRef="Sequence_12">
+  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml works on No time reported weekly mails&#xA;" DisplayName="Sequence No Time Reported Report Creation And Sending Reminders" sap:VirtualizedContainerService.HintSize="3064,13636" sap2010:WorkflowViewState.IdRef="Sequence_12">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try No Time Reported Report Creation And Sending Reminders" sap:VirtualizedContainerService.HintSize="676,8919" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try No Time Reported Report Creation And Sending Reminders" sap:VirtualizedContainerService.HintSize="744,13571" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -145,7 +150,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="Description: This xaml works on No time reported weekly mails&#xA;" DisplayName="No Time Reported Report Creation And Sending Reminders" sap:VirtualizedContainerService.HintSize="638,8668" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence sap2010:Annotation.AnnotationText="Description: This xaml works on No time reported weekly mails&#xA;" DisplayName="No Time Reported Report Creation And Sending Reminders" sap:VirtualizedContainerService.HintSize="706,13320" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Default="[new DataTable]" Name="dt_InputData" />
             <Variable x:TypeArguments="sd:DataTable" Default="[new DataTable]" Name="dt_OutputData" />
@@ -168,8 +173,8 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log No Time Reported Report Creation Start" sap:VirtualizedContainerService.HintSize="604,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;No Time Reported Report Creation has started&quot;]" />
-          <Assign DisplayName="Initialise Out No Time Report  Parameter" sap:VirtualizedContainerService.HintSize="604,114" sap2010:WorkflowViewState.IdRef="Assign_7">
+          <ui:LogMessage DisplayName="Log No Time Reported Report Creation Start" sap:VirtualizedContainerService.HintSize="672,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;No Time Reported Report Creation has started&quot;]" />
+          <Assign DisplayName="Initialise Out No Time Report  Parameter" sap:VirtualizedContainerService.HintSize="672,114" sap2010:WorkflowViewState.IdRef="Assign_7">
             <Assign.To>
               <OutArgument x:TypeArguments="sd:DataTable">[out_dt_NoTimeReported]</OutArgument>
             </Assign.To>
@@ -177,8 +182,8 @@
               <InArgument x:TypeArguments="sd:DataTable">[new DataTable]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_InputData]" DisplayName="Read No Time Reported Report" sap:VirtualizedContainerService.HintSize="604,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[in_StrReportSheetName]" WorkbookPath="[in_StrReportPath]" />
-          <If Condition="[dt_InputData.Columns.Contains(cstr(in_dicConfig(&quot;EmpTypeHeaderInRPT00177&quot;)).Trim) AND dt_InputData.Columns.Contains(cstr(in_dicConfig(&quot;WorkerTypeHeaderInRPT00177&quot;)).Trim)]" DisplayName="If Column Name Contains" sap:VirtualizedContainerService.HintSize="604,908" sap2010:WorkflowViewState.IdRef="If_7">
+          <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_InputData]" DisplayName="Read No Time Reported Report" sap:VirtualizedContainerService.HintSize="672,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[in_StrReportSheetName]" WorkbookPath="[in_StrReportPath]" />
+          <If Condition="[dt_InputData.Columns.Contains(cstr(in_dicConfig(&quot;EmpTypeHeaderInRPT00177&quot;)).Trim) AND dt_InputData.Columns.Contains(cstr(in_dicConfig(&quot;WorkerTypeHeaderInRPT00177&quot;)).Trim)]" DisplayName="If Column Name Contains" sap:VirtualizedContainerService.HintSize="672,908" sap2010:WorkflowViewState.IdRef="If_7">
             <If.Then>
               <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,286" sap2010:WorkflowViewState.IdRef="Sequence_20">
                 <sap:WorkflowViewStateService.ViewState>
@@ -247,8 +252,8 @@
               </Sequence>
             </If.Else>
           </If>
-          <ui:LogMessage DisplayName="log Filtererd No Time Reported Output Row Count" sap:VirtualizedContainerService.HintSize="604,173" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Rows after processing input: &quot;+dt_OutputData.RowCount.ToString]" />
-          <Assign DisplayName="Get Current Week Monday" sap:VirtualizedContainerService.HintSize="604,114" sap2010:WorkflowViewState.IdRef="Assign_23">
+          <ui:LogMessage DisplayName="log Filtererd No Time Reported Output Row Count" sap:VirtualizedContainerService.HintSize="672,173" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Rows after processing input: &quot;+dt_OutputData.RowCount.ToString]" />
+          <Assign DisplayName="Get Current Week Monday" sap:VirtualizedContainerService.HintSize="672,114" sap2010:WorkflowViewState.IdRef="Assign_23">
             <Assign.To>
               <OutArgument x:TypeArguments="s:DateTime">[dateCurrentWeekMon]</OutArgument>
             </Assign.To>
@@ -256,8 +261,8 @@
               <InArgument x:TypeArguments="s:DateTime">[now.AddDays(-1*(now.DayOfWeek-DayOfWeek.Monday)).Date]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:LogMessage DisplayName="Log Current Week Monday" sap:VirtualizedContainerService.HintSize="604,173" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Current week monday date: &quot;+cstr(dateCurrentWeekMon)]" />
-          <If sap2010:Annotation.AnnotationText="This will check and proceed for data exist in the report or not." Condition="[dt_OutputData.RowCount&lt;&gt;0]" DisplayName="Check Data In No Time Reported For Hire Date" sap:VirtualizedContainerService.HintSize="604,818" sap2010:WorkflowViewState.IdRef="If_6">
+          <ui:LogMessage DisplayName="Log Current Week Monday" sap:VirtualizedContainerService.HintSize="672,173" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Current week monday date: &quot;+cstr(dateCurrentWeekMon)]" />
+          <If sap2010:Annotation.AnnotationText="This will check and proceed for data exist in the report or not." Condition="[dt_OutputData.RowCount&lt;&gt;0]" DisplayName="Check Data In No Time Reported For Hire Date" sap:VirtualizedContainerService.HintSize="672,818" sap2010:WorkflowViewState.IdRef="If_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -336,8 +341,8 @@
               </Sequence>
             </If.Else>
           </If>
-          <ui:LogMessage DisplayName="log row count after excluding hire date = current week date" sap:VirtualizedContainerService.HintSize="604,173" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Rows after applying hire date filter: &quot;+dt_OutputData.RowCount.ToString]" />
-          <Assign DisplayName="Calculate Week Count No Time Reported" sap:VirtualizedContainerService.HintSize="604,114" sap2010:WorkflowViewState.IdRef="Assign_15">
+          <ui:LogMessage DisplayName="log row count after excluding hire date = current week date" sap:VirtualizedContainerService.HintSize="672,173" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Rows after applying hire date filter: &quot;+dt_OutputData.RowCount.ToString]" />
+          <Assign DisplayName="Calculate Week Count No Time Reported" sap:VirtualizedContainerService.HintSize="672,114" sap2010:WorkflowViewState.IdRef="Assign_15">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[strWeekCount]</OutArgument>
             </Assign.To>
@@ -345,7 +350,7 @@
               <InArgument x:TypeArguments="x:String">[cstr(DateDiff(DateInterval.WeekOfYear,new date(now.year,1,1), now.Date)+1)]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Frame Output Path No Time Reported" sap:VirtualizedContainerService.HintSize="604,114" sap2010:WorkflowViewState.IdRef="Assign_16">
+          <Assign DisplayName="Frame Output Path No Time Reported" sap:VirtualizedContainerService.HintSize="672,114" sap2010:WorkflowViewState.IdRef="Assign_16">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[strOutputReportPath]</OutArgument>
             </Assign.To>
@@ -353,7 +358,7 @@
               <InArgument x:TypeArguments="x:String">[Path.GetDirectoryName(in_StrReportPath)+"\"+CStr(in_dicConfig("NoTimeReportedFileName")).Replace("{week}",strWeekCount).Replace("{month}",Now.ToString("MMMM")).Replace("{datetime}",now.ToString("MM-dd-yyyy hh mm ss"))+".xlsx"]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:FilterDataTable DataTable="[dt_OutputData]" DisplayName="Filter Data Table_Remove Hire Data" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="604,193" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[dt_OutputData]" SelectColumnsMode="Remove">
+          <ui:FilterDataTable DataTable="[dt_OutputData]" DisplayName="Filter Data Table_Remove Hire Data" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="672,193" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[dt_OutputData]" SelectColumnsMode="Remove">
             <ui:FilterDataTable.Filters>
               <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                 <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
@@ -365,8 +370,8 @@
               </scg:List>
             </ui:FilterDataTable.SelectColumns>
           </ui:FilterDataTable>
-          <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt_OutputData]" DisplayName="Generate Output No Time Reported Report" sap:VirtualizedContainerService.HintSize="604,148" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="[in_StrReportSheetName]" WorkbookPath="[strOutputReportPath]" />
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Upload No Time Reported (RPT00177 ) Weekly Report To Sharepoint" sap:VirtualizedContainerService.HintSize="604,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Process\Sharepoint\SaveFIleIntoSharepoint.xaml">
+          <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt_OutputData]" DisplayName="Generate Output No Time Reported Report" sap:VirtualizedContainerService.HintSize="672,148" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="[in_StrReportSheetName]" WorkbookPath="[strOutputReportPath]" />
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Upload No Time Reported (RPT00177 ) Weekly Report To Sharepoint" sap:VirtualizedContainerService.HintSize="672,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Process\Sharepoint\SaveFIleIntoSharepoint.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="in_strLocalFilepath">[strOutputReportPath]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_strTenantID">[cstr(in_dicConfig("O365TenantIDAssetName"))]</InArgument>
@@ -378,10 +383,15 @@
               <InArgument x:TypeArguments="x:String" x:Key="in_strException">[cstr(in_dicConfig("SaveFileSPSE"))]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <Sequence sap2010:Annotation.AnnotationText="This sequence will get TO and CC emails id's and send weekly reminder emails for no time reported people." DisplayName="Send Weekly reminder Email No Time Report" sap:VirtualizedContainerService.HintSize="604,5011" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <Sequence sap2010:Annotation.AnnotationText="This sequence will get TO and CC emails id's and send weekly reminder emails for no time reported people." DisplayName="Send Weekly reminder Email No Time Report" sap:VirtualizedContainerService.HintSize="672,9663" sap2010:WorkflowViewState.IdRef="Sequence_8">
             <Sequence.Variables>
               <Variable x:TypeArguments="s:String[]" Name="strArryExclusionUser" />
               <Variable x:TypeArguments="s:String[]" Name="strArryExclusionSupervisor" />
+              <Variable x:TypeArguments="x:String" Name="strNoTimeUserSubject" />
+              <Variable x:TypeArguments="x:String" Name="strNoTimeSupervisorSubject" />
+              <Variable x:TypeArguments="x:String" Name="strNoTimeUserBody" />
+              <Variable x:TypeArguments="x:Boolean" Name="blnSplitNoTime" />
+              <Variable x:TypeArguments="x:String" Name="strNoTimeSupervisorBody" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -390,7 +400,7 @@
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="Assign No Time Report  Dt No Time Reported" sap:VirtualizedContainerService.HintSize="570,114" sap2010:WorkflowViewState.IdRef="Assign_17">
+            <Assign DisplayName="Assign No Time Report  Dt No Time Reported" sap:VirtualizedContainerService.HintSize="638,114" sap2010:WorkflowViewState.IdRef="Assign_17">
               <Assign.To>
                 <OutArgument x:TypeArguments="sd:DataTable">[out_dt_NoTimeReported]</OutArgument>
               </Assign.To>
@@ -398,7 +408,7 @@
                 <InArgument x:TypeArguments="sd:DataTable">[dt_OutputData]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Get Employess Email Ids No Time Reported" sap:VirtualizedContainerService.HintSize="570,114" sap2010:WorkflowViewState.IdRef="Assign_18">
+            <Assign DisplayName="Get Employess Email Ids No Time Reported" sap:VirtualizedContainerService.HintSize="638,114" sap2010:WorkflowViewState.IdRef="Assign_18">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[strToEmail]</OutArgument>
               </Assign.To>
@@ -406,9 +416,9 @@
                 <InArgument x:TypeArguments="x:String">[String.Join(";"c,dt_OutputData.AsEnumerable().Select(function(x) x.Field(Of String)(cstr(in_dicConfig("EmailheaderInRPT00177"))).Split(" ").First).Distinct.ToArray())]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="570,164" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="638,319" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
               <ui:MultipleAssign.AssignOperations>
-                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
                     <ui:AssignOperation.To>
                       <OutArgument x:TypeArguments="s:String[]">[strArryExclusionUser]</OutArgument>
@@ -425,6 +435,46 @@
                       <InArgument x:TypeArguments="s:String[]">[Split(in_exclusionSupervisor,";")]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[strNoTimeUserSubject]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[in_NoTimeUserSubject]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[strNoTimeUserBody]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[in_notimeuserbody]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[strNoTimeSupervisorSubject]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[in_NoTimeSupervisorSubject]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[blnSplitNoTime]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Boolean">[in_SplitNoTime]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[strNoTimeSupervisorBody]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[in_NoTimeSupervisorBody]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
               <sap:WorkflowViewStateService.ViewState>
@@ -434,7 +484,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:MultipleAssign>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each User in Exclusion List, remove from strToEmail" sap:VirtualizedContainerService.HintSize="570,671" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[strArryExclusionUser]">
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each User in Exclusion List, remove from strToEmail" sap:VirtualizedContainerService.HintSize="638,671" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[strArryExclusionUser]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
@@ -484,8 +534,8 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ForEach>
-            <ui:LogMessage DisplayName="log To Mail Id's No Time Reported" sap:VirtualizedContainerService.HintSize="570,173" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Employee mail ids: &quot;+strToEmail]" />
-            <Assign DisplayName="Get Managers Email Ids No Time Reported" sap:VirtualizedContainerService.HintSize="570,114" sap2010:WorkflowViewState.IdRef="Assign_19">
+            <ui:LogMessage DisplayName="log To Mail Id's No Time Reported" sap:VirtualizedContainerService.HintSize="638,173" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Employee mail ids: &quot;+strToEmail]" />
+            <Assign DisplayName="Get Managers Email Ids No Time Reported" sap:VirtualizedContainerService.HintSize="638,114" sap2010:WorkflowViewState.IdRef="Assign_19">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[strCcEmail]</OutArgument>
               </Assign.To>
@@ -493,7 +543,7 @@
                 <InArgument x:TypeArguments="x:String">[String.Join(";"c,dt_OutputData.AsEnumerable().Select(function(x) x.Field(Of String)(cstr(in_dicConfig("ManagerEmailHeaderInRPT00177"))).Split(" ").First).Distinct.ToArray())+";"+ in_OutgoingEmailCC]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Supervisor in Exclusion List, remove from strCCEmail" sap:VirtualizedContainerService.HintSize="570,671" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[strArryExclusionSupervisor]">
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Supervisor in Exclusion List, remove from strCCEmail" sap:VirtualizedContainerService.HintSize="638,671" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[strArryExclusionSupervisor]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
@@ -543,8 +593,8 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ForEach>
-            <ui:LogMessage DisplayName="log CC Mail Id's No Time Reported" sap:VirtualizedContainerService.HintSize="570,173" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Manager mail ids: &quot;+strCcEmail]" />
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will get the previous week start and end dates based on PDD logic" DisplayName="Get Start And End Dates No Time Reported" sap:VirtualizedContainerService.HintSize="570,187" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Process\WeeklyReports\GetStartAndEndDates.xaml">
+            <ui:LogMessage DisplayName="log CC Mail Id's No Time Reported" sap:VirtualizedContainerService.HintSize="638,173" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Manager mail ids: &quot;+strCcEmail]" />
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will get the previous week start and end dates based on PDD logic" DisplayName="Get Start And End Dates No Time Reported" sap:VirtualizedContainerService.HintSize="638,187" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Process\WeeklyReports\GetStartAndEndDates.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <OutArgument x:TypeArguments="s:DateTime" x:Key="out_DatePreviousWeekSunday">[dateStartDate]</OutArgument>
                 <OutArgument x:TypeArguments="s:DateTime" x:Key="out_DatePreviousWeekSaturday">[dateEndDate]</OutArgument>
@@ -557,91 +607,295 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:InvokeWorkflowFile>
-            <Assign DisplayName="Assign Mail Subject No Time Reported" sap:VirtualizedContainerService.HintSize="570,115" sap2010:WorkflowViewState.IdRef="Assign_20">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[strMailSubject]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String" xml:space="preserve">[CStr(in_dicConfig("NoTimeReportedMailSubject")).Replace(
-"{week}",strWeekCount).Replace("{startmonth}",dateStartDate.ToString("MMMM")).Replace(
-"{startday}",dateStartDate.ToString("dd")).Replace("{endmonth}",dateEndDate.ToString("MMMM")).Replace(
-"{endday}",dateEndDate.ToString("dd"))]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <ui:LogMessage DisplayName="Log Mail Subject No Time Reported" sap:VirtualizedContainerService.HintSize="570,173" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Mail subject: &quot;+strMailSubject]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:LogMessage>
-            <ui:MultipleAssign DisplayName="Assign Mail Body No Time Reported" sap:VirtualizedContainerService.HintSize="570,164" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
-              <ui:MultipleAssign.AssignOperations>
-                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                  <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_5">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[strMailBody]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[If(boolPayCycleWeek,CStr(in_dicConfig("P003_090_TimesheetApprovals_NoTimeReportedMailBody_PayCycleWeek")),CStr(in_dicConfig("P003_090_TimesheetApprovals_NoTimeReportedMailBody")))]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[strMailBody]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String" xml:space="preserve">[strMailBody.Replace(
-"{startDate}",dateStartDate.ToString("MM/dd/yyyy")).Replace(
-"{endDate}",dateEndDate.ToString("MM/dd/yyyy")).Replace("&lt;&lt;payrollemails&gt;&gt;",in_payrollemails)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                </scg:List>
-              </ui:MultipleAssign.AssignOperations>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:MultipleAssign>
-            <If sap2010:Annotation.AnnotationText="This will check and proceed for data exist in the report or not." Condition="[dt_OutputData.RowCount&lt;&gt;0]" DisplayName="Check Data In No Time Reported" sap:VirtualizedContainerService.HintSize="570,2044" sap2010:WorkflowViewState.IdRef="If_3">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[in_SplitNoTime=False]" sap:VirtualizedContainerService.HintSize="638,7004" sap2010:WorkflowViewState.IdRef="If_13">
               <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,1514" sap2010:WorkflowViewState.IdRef="Sequence_9">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="scg:List(x:String)" Name="attchmentArray" />
-                    <Variable x:TypeArguments="s:String[]" Name="strBCCEmail" />
-                    <Variable x:TypeArguments="s:String[]" Name="strToAddress" />
-                  </Sequence.Variables>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="604,2556" sap2010:WorkflowViewState.IdRef="Sequence_35">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="log No Time Reported Data Exists After Filter" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Rows read from input file: &quot;+dt_OutputData.RowCount.ToString]" />
-                  <If Condition="[in_Attachment=False]" DisplayName="If attachment=false" sap:VirtualizedContainerService.HintSize="502,500" sap2010:WorkflowViewState.IdRef="If_8">
+                  <Assign DisplayName="Assign Mail Subject No Time Reported" sap:VirtualizedContainerService.HintSize="570,115" sap2010:WorkflowViewState.IdRef="Assign_20">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[strMailSubject]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String" xml:space="preserve">[CStr(in_dicConfig("NoTimeReportedMailSubject")).Replace(
+"{week}",strWeekCount).Replace("{startmonth}",dateStartDate.ToString("MMMM")).Replace(
+"{startday}",dateStartDate.ToString("dd")).Replace("{endmonth}",dateEndDate.ToString("MMMM")).Replace(
+"{endday}",dateEndDate.ToString("dd"))]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:LogMessage DisplayName="Log Mail Subject No Time Reported" sap:VirtualizedContainerService.HintSize="570,173" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Mail subject: &quot;+strMailSubject]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
+                  </ui:LogMessage>
+                  <ui:MultipleAssign DisplayName="Assign Mail Body No Time Reported" sap:VirtualizedContainerService.HintSize="570,164" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[strMailBody]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[If(boolPayCycleWeek,CStr(in_dicConfig("P003_090_TimesheetApprovals_NoTimeReportedMailBody_PayCycleWeek")),CStr(in_dicConfig("P003_090_TimesheetApprovals_NoTimeReportedMailBody")))]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[strMailBody]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[strMailBody.Replace(
+"{startDate}",dateStartDate.ToString("MM/dd/yyyy")).Replace(
+"{endDate}",dateEndDate.ToString("MM/dd/yyyy")).Replace("&lt;&lt;payrollemails&gt;&gt;",in_payrollemails)]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:MultipleAssign>
+                  <If sap2010:Annotation.AnnotationText="This will check and proceed for data exist in the report or not." Condition="[dt_OutputData.RowCount&lt;&gt;0]" DisplayName="Check Data In No Time Reported" sap:VirtualizedContainerService.HintSize="570,2044" sap2010:WorkflowViewState.IdRef="If_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,1514" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="scg:List(x:String)" Name="attchmentArray" />
+                          <Variable x:TypeArguments="s:String[]" Name="strBCCEmail" />
+                          <Variable x:TypeArguments="s:String[]" Name="strToAddress" />
+                        </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_33">
+                        <ui:LogMessage DisplayName="log No Time Reported Data Exists After Filter" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Rows read from input file: &quot;+dt_OutputData.RowCount.ToString]" />
+                        <If Condition="[in_Attachment=False]" DisplayName="If attachment=false" sap:VirtualizedContainerService.HintSize="502,500" sap2010:WorkflowViewState.IdRef="If_8">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_33">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="scg:List(x:String)">[attchmentArray]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="scg:List(x:String)">[nothing]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_34">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="scg:List(x:String)">[attchmentArray]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="scg:List(x:String)">[new List(of string) from {strOutputReportPath}]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                        <If Condition="[in_EmailBCC=True]" DisplayName="If BCC" sap:VirtualizedContainerService.HintSize="502,500" sap2010:WorkflowViewState.IdRef="If_9">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_35">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="s:String[]">[strBCCEmail]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="s:String[]">[strToEmail.Split(";")]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_36">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="s:String[]">[strToAddress]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="s:String[]">[strToEmail.Split(";")]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will send no time reported reminder email" DisplayName="Send Mail No Time Reported Weekly Reminder" sap:VirtualizedContainerService.HintSize="502,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Process\Send Email\SendMail.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InArgument x:TypeArguments="s:String[]" x:Key="in_StrToAddress">[strToAddress]</InArgument>
+                            <InArgument x:TypeArguments="s:String[]" x:Key="in_StrCcAddress">[strCcEmail.Split(";")]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">[strMailSubject]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">[strMailBody]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_StrAccount">[CStr(in_dicConfig("P003_090_TimesheetApprovals_MailAccount"))]</InArgument>
+                            <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListAttachmentPath">[attchmentArray]</InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[in_dicConfig]</InArgument>
+                            <InArgument x:TypeArguments="s:String[]" x:Key="in_BCCEmails">[strBCCEmail]</InArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                        <Assign DisplayName="Assign No TIme Report Data Flag" sap:VirtualizedContainerService.HintSize="502,105" sap2010:WorkflowViewState.IdRef="Assign_21">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[out_boolNoData]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,338" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message No Data No Time Report" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;No data in the No Time Report&quot;]" />
+                        <Assign DisplayName="Assign No Time Report Data Flag For No Data" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_22">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[out_boolNoData]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="604,4287" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Assign Mail Subject No Time Reported" sap:VirtualizedContainerService.HintSize="570,114" sap2010:WorkflowViewState.IdRef="Assign_42">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[strMailSubject]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[in_NoTimeUserSubject]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:LogMessage DisplayName="Log Mail Subject No Time Reported" sap:VirtualizedContainerService.HintSize="570,173" sap2010:WorkflowViewState.IdRef="LogMessage_32" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Mail subject: &quot;+strMailSubject]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:LogMessage>
+                  <ui:MultipleAssign DisplayName="Assign Mail Body No Time Reported" sap:VirtualizedContainerService.HintSize="570,164" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[strMailBody]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[in_NoTimeUserBody]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[strMailBody]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[strMailBody.Replace(
+"{startDate}",dateStartDate.ToString("MM/dd/yyyy")).Replace(
+"{endDate}",dateEndDate.ToString("MM/dd/yyyy")).Replace("&lt;&lt;payrollemails&gt;&gt;",in_payrollemails)]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:MultipleAssign>
+                  <If sap2010:Annotation.AnnotationText="This will check and proceed for data exist in the report or not." Condition="[dt_OutputData.RowCount&lt;&gt;0]" DisplayName="Check Data In No Time Reported" sap:VirtualizedContainerService.HintSize="570,1667" sap2010:WorkflowViewState.IdRef="If_16">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,1128" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="scg:List(x:String)" Name="attchmentArray" />
+                          <Variable x:TypeArguments="s:String[]" Name="strBCCEmail" />
+                          <Variable x:TypeArguments="s:String[]" Name="strToAddress" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="log No Time Reported Data Exists After Filter" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_33" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Rows read from input file: &quot;+dt_OutputData.RowCount.ToString]" />
+                        <Assign sap:VirtualizedContainerService.HintSize="502,114" sap2010:WorkflowViewState.IdRef="Assign_43">
                           <Assign.To>
                             <OutArgument x:TypeArguments="scg:List(x:String)">[attchmentArray]</OutArgument>
                           </Assign.To>
@@ -649,16 +903,178 @@
                             <InArgument x:TypeArguments="scg:List(x:String)">[nothing]</InArgument>
                           </Assign.Value>
                         </Assign>
+                        <If Condition="[in_EmailBCC=True]" DisplayName="If BCC" sap:VirtualizedContainerService.HintSize="502,500" sap2010:WorkflowViewState.IdRef="If_18">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_45">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="s:String[]">[strBCCEmail]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="s:String[]">[strToEmail.Split(";")]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_46">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="s:String[]">[strToAddress]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="s:String[]">[strToEmail.Split(";")]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will send no time reported reminder email" DisplayName="Send Mail No Time Reported Weekly Reminder" sap:VirtualizedContainerService.HintSize="502,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Process\Send Email\SendMail.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InArgument x:TypeArguments="s:String[]" x:Key="in_StrToAddress">
+                              <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="strToAddress" />
+                            </InArgument>
+                            <InArgument x:TypeArguments="s:String[]" x:Key="in_StrCcAddress" />
+                            <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">
+                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailSubject" />
+                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">
+                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailBody" />
+                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_StrAccount">
+                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="CStr(in_dicConfig(&quot;P003_090_TimesheetApprovals_MailAccount&quot;))" />
+                            </InArgument>
+                            <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListAttachmentPath" />
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">
+                              <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_dicConfig" />
+                            </InArgument>
+                            <InArgument x:TypeArguments="s:String[]" x:Key="in_BCCEmails">
+                              <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="strBCCEmail" />
+                            </InArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                        <Assign DisplayName="Assign No TIme Report Data Flag" sap:VirtualizedContainerService.HintSize="502,105" sap2010:WorkflowViewState.IdRef="Assign_47">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[out_boolNoData]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,338" sap2010:WorkflowViewState.IdRef="Sequence_44">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_34">
+                        <ui:LogMessage DisplayName="Log Message No Data No Time Report" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;No data in the No Time Report&quot;]" />
+                        <Assign DisplayName="Assign No Time Report Data Flag For No Data" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_48">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[out_boolNoData]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <Assign DisplayName="Assign Mail Subject No Time Reported" sap:VirtualizedContainerService.HintSize="570,114" sap2010:WorkflowViewState.IdRef="Assign_49">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[strMailSubject]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[in_NoTimeSupervisorSubject]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:LogMessage DisplayName="Log Mail Subject No Time Reported" sap:VirtualizedContainerService.HintSize="570,173" sap2010:WorkflowViewState.IdRef="LogMessage_35" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Mail subject: &quot;+strMailSubject]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:LogMessage>
+                  <ui:MultipleAssign DisplayName="Assign Mail Body No Time Reported" sap:VirtualizedContainerService.HintSize="570,164" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[strMailBody]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[in_NoTimeSupervisorBody]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[strMailBody]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[strMailBody.Replace(
+"{startDate}",dateStartDate.ToString("MM/dd/yyyy")).Replace(
+"{endDate}",dateEndDate.ToString("MM/dd/yyyy")).Replace("&lt;&lt;payrollemails&gt;&gt;",in_payrollemails)]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:MultipleAssign>
+                  <If sap2010:Annotation.AnnotationText="This will check and proceed for data exist in the report or not." Condition="[dt_OutputData.RowCount&lt;&gt;0]" DisplayName="Check Data In No Time Reported" sap:VirtualizedContainerService.HintSize="570,1658" sap2010:WorkflowViewState.IdRef="If_19">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,1128" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="scg:List(x:String)" Name="attchmentArray" />
+                          <Variable x:TypeArguments="s:String[]" Name="strBCCEmail" />
+                          <Variable x:TypeArguments="s:String[]" Name="strToAddress" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="log No Time Reported Data Exists After Filter" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_37" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Rows read from input file: &quot;+dt_OutputData.RowCount.ToString]" />
+                        <Assign sap:VirtualizedContainerService.HintSize="502,114" sap2010:WorkflowViewState.IdRef="Assign_55">
                           <Assign.To>
                             <OutArgument x:TypeArguments="scg:List(x:String)">[attchmentArray]</OutArgument>
                           </Assign.To>
@@ -666,101 +1082,114 @@
                             <InArgument x:TypeArguments="scg:List(x:String)">[new List(of string) from {strOutputReportPath}]</InArgument>
                           </Assign.Value>
                         </Assign>
-                      </Sequence>
-                    </If.Else>
-                  </If>
-                  <If Condition="[in_EmailBCC=True]" DisplayName="If BCC" sap:VirtualizedContainerService.HintSize="502,500" sap2010:WorkflowViewState.IdRef="If_9">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <If.Then>
-                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_24">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_35">
+                        <If Condition="[in_EmailBCC=True]" DisplayName="If BCC" sap:VirtualizedContainerService.HintSize="502,500" sap2010:WorkflowViewState.IdRef="If_20">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_51">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="s:String[]">[strBCCEmail]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="s:String[]">[strToEmail.Split(";")]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_52">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="s:String[]">[strToAddress]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="s:String[]">[strToEmail.Split(";")]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will send no time reported reminder email" DisplayName="Send Mail No Time Reported Weekly Reminder" sap:VirtualizedContainerService.HintSize="502,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="Process\Send Email\SendMail.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InArgument x:TypeArguments="s:String[]" x:Key="in_StrToAddress" />
+                            <InArgument x:TypeArguments="s:String[]" x:Key="in_StrCcAddress">
+                              <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="strCcEmail.Split(&quot;;&quot;)" />
+                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">
+                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailSubject" />
+                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">
+                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailBody" />
+                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_StrAccount">
+                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="CStr(in_dicConfig(&quot;P003_090_TimesheetApprovals_MailAccount&quot;))" />
+                            </InArgument>
+                            <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListAttachmentPath">
+                              <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="attchmentArray" />
+                            </InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">
+                              <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_dicConfig" />
+                            </InArgument>
+                            <InArgument x:TypeArguments="s:String[]" x:Key="in_BCCEmails" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                        <Assign DisplayName="Assign No TIme Report Data Flag" sap:VirtualizedContainerService.HintSize="502,105" sap2010:WorkflowViewState.IdRef="Assign_53">
                           <Assign.To>
-                            <OutArgument x:TypeArguments="s:String[]">[strBCCEmail]</OutArgument>
+                            <OutArgument x:TypeArguments="x:Boolean">[out_boolNoData]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="s:String[]">[strToEmail.Split(";")]</InArgument>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
                           </Assign.Value>
                         </Assign>
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,338" sap2010:WorkflowViewState.IdRef="Sequence_46">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_36">
+                        <ui:LogMessage DisplayName="Log Message No Data No Time Report" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_36" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;No data in the No Time Report&quot;]" />
+                        <Assign DisplayName="Assign No Time Report Data Flag For No Data" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_54">
                           <Assign.To>
-                            <OutArgument x:TypeArguments="s:String[]">[strToAddress]</OutArgument>
+                            <OutArgument x:TypeArguments="x:Boolean">[out_boolNoData]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="s:String[]">[strToEmail.Split(";")]</InArgument>
+                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                           </Assign.Value>
                         </Assign>
                       </Sequence>
                     </If.Else>
                   </If>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will send no time reported reminder email" DisplayName="Send Mail No Time Reported Weekly Reminder" sap:VirtualizedContainerService.HintSize="502,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Process\Send Email\SendMail.xaml">
-                    <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="s:String[]" x:Key="in_StrToAddress">[strToAddress]</InArgument>
-                      <InArgument x:TypeArguments="s:String[]" x:Key="in_StrCcAddress">[strCcEmail.Split(";")]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">[strMailSubject]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">[strMailBody]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_StrAccount">[CStr(in_dicConfig("P003_090_TimesheetApprovals_MailAccount"))]</InArgument>
-                      <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListAttachmentPath">[attchmentArray]</InArgument>
-                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[in_dicConfig]</InArgument>
-                      <InArgument x:TypeArguments="s:String[]" x:Key="in_BCCEmails">[strBCCEmail]</InArgument>
-                    </ui:InvokeWorkflowFile.Arguments>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </ui:InvokeWorkflowFile>
-                  <Assign DisplayName="Assign No TIme Report Data Flag" sap:VirtualizedContainerService.HintSize="502,105" sap2010:WorkflowViewState.IdRef="Assign_21">
-                    <Assign.To>
-                      <OutArgument x:TypeArguments="x:Boolean">[out_boolNoData]</OutArgument>
-                    </Assign.To>
-                    <Assign.Value>
-                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
-                    </Assign.Value>
-                  </Assign>
-                </Sequence>
-              </If.Then>
-              <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,338" sap2010:WorkflowViewState.IdRef="Sequence_10">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message No Data No Time Report" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;No data in the No Time Report&quot;]" />
-                  <Assign DisplayName="Assign No Time Report Data Flag For No Data" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_22">
-                    <Assign.To>
-                      <OutArgument x:TypeArguments="x:Boolean">[out_boolNoData]</OutArgument>
-                    </Assign.To>
-                    <Assign.Value>
-                      <InArgument x:TypeArguments="x:Boolean">True</InArgument>
-                    </Assign.Value>
-                  </Assign>
                 </Sequence>
               </If.Else>
             </If>
           </Sequence>
-          <ui:LogMessage DisplayName="Log No Time Reported Report End" sap:VirtualizedContainerService.HintSize="604,75" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;No Time Reported  Report creation and sending reminder has completed&quot;]">
+          <ui:LogMessage DisplayName="Log No Time Reported Report End" sap:VirtualizedContainerService.HintSize="672,75" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;No Time Reported  Report creation and sending reminder has completed&quot;]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -771,7 +1200,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="638.6666666666666,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="710,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -782,7 +1211,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="450,320.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <Sequence sap:VirtualizedContainerService.HintSize="422,230" sap2010:WorkflowViewState.IdRef="Sequence_11">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>

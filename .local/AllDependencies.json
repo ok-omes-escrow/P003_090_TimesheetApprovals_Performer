@@ -5658,6 +5658,22 @@
             "locale": "zu"
           }
         }
+      },
+      "UiPathTeam.DatatablesSetOrdinal.Activities/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0-windows7.0/_._": {}
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/DatatableSetOrdinal.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        }
       }
     },
     "net8.0-windows7.0/win-x64": {
@@ -11147,6 +11163,22 @@
           },
           "lib/net6.0-windows7.0/zu/UiPath.Web.Activities.resources.dll": {
             "locale": "zu"
+          }
+        }
+      },
+      "UiPathTeam.DatatablesSetOrdinal.Activities/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0-windows7.0/_._": {}
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/DatatableSetOrdinal.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
           }
         }
       }
@@ -21924,6 +21956,22 @@
         "uipath.webapi.runtime.1.18.0.nupkg.sha512",
         "uipath.webapi.runtime.nuspec"
       ]
+    },
+    "UiPathTeam.DatatablesSetOrdinal.Activities/2.0.0": {
+      "sha512": "Z6VPH60HlfK3M31/y1b/TPT/dBPrBUhTUNxQvT8sBm65nlzMprOiQWqE9AJ1TRBBnWgf+NNSN5REf+8WKXzw0A==",
+      "type": "package",
+      "path": "uipathteam.datatablessetordinal.activities/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        "LICENSE.md",
+        "content/uipath.ico",
+        "contentFiles/any/net461/uipath.ico",
+        "contentFiles/any/net5.0-windows7.0/uipath.ico",
+        "lib/net461/DatatableSetOrdinal.dll",
+        "lib/net5.0-windows7.0/DatatableSetOrdinal.dll",
+        "uipathteam.datatablessetordinal.activities.2.0.0.nupkg.sha512",
+        "uipathteam.datatablessetordinal.activities.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -21935,7 +21983,8 @@
       "UiPath.System.Activities >= 23.4.5 <= 23.4.5",
       "UiPath.Testing.Activities >= 23.4.1 <= 23.4.1",
       "UiPath.UIAutomation.Activities >= 23.4.8 <= 23.4.8",
-      "UiPath.WebAPI.Activities >= 1.18.0 <= 1.18.0"
+      "UiPath.WebAPI.Activities >= 1.18.0 <= 1.18.0",
+      "UiPathTeam.DatatablesSetOrdinal.Activities >= 2.0.0 <= 2.0.0"
     ]
   },
   "packageFolders": {
@@ -21986,6 +22035,11 @@
             "include": "Runtime",
             "target": "Package",
             "version": "[1.18.0, 1.18.0]"
+          },
+          "UiPathTeam.DatatablesSetOrdinal.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[2.0.0, 2.0.0]"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\UiPath\\Studio\\PortableRuntimeIdentifierGraph.json"

@@ -278,6 +278,21 @@
             <InArgument x:TypeArguments="x:String" x:Key="in_ExclusionSupervisor">
               <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;ExclusionSupervisor&quot;))" />
             </InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_SplitNoTime">
+              <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="convert.ToBoolean(in_TransactionItem.SpecificContent(&quot;SplitNoTime&quot;))" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_NoTimeUserSubject">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;NoTimeUserSubject&quot;))" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_NoTimeSupervisorSubject">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;NoTimeSupervisorSubject&quot;))" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_NoTimeUserBody">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;NoTimeUserBody&quot;))" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_NoTimeSupervisorBody">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;NoTimeSupervisorBody&quot;))" />
+            </InArgument>
           </ui:InvokeWorkflowFile.Arguments>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -329,10 +344,10 @@
           </TryCatch.Catches>
         </TryCatch>
       </Sequence>
-      <Sequence x:Key="NotSubmitted" sap2010:Annotation.AnnotationText="This will process not submitted flow." DisplayName="Not Submitted" sap:VirtualizedContainerService.HintSize="472,684" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence x:Key="NotSubmitted" sap2010:Annotation.AnnotationText="This will process not submitted flow." DisplayName="Not Submitted" sap:VirtualizedContainerService.HintSize="416,56" sap2010:WorkflowViewState.IdRef="Sequence_3">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
@@ -374,6 +389,21 @@
             </InArgument>
             <InArgument x:TypeArguments="x:String" x:Key="in_exclusionSupervisor">
               <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;ExclusionSupervisor&quot;))" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_NotSubmittedUserSubject">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;NotSubmittedUserSubject&quot;))" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_NotSubmittedUserBody">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;NotSubmittedUserBody&quot;))" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_NotSubmittedSupervisorBody">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;NotSubmittedSupervisorBody&quot;))" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_NotSubmittedSupervisorSubject">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;NotSubmittedSupervisorSubject&quot;))" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_SplitNotSubmitted">
+              <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="convert.ToBoolean(in_TransactionItem.SpecificContent(&quot;SplitNotSubmitted&quot;))" />
             </InArgument>
           </ui:InvokeWorkflowFile.Arguments>
           <sap:WorkflowViewStateService.ViewState>
@@ -463,6 +493,12 @@
             <InArgument x:TypeArguments="x:String" x:Key="in_ExclusionSupervisor">
               <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;ExclusionSupervisor&quot;))" />
             </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_TimeNotApprovedSubject">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;TimeNotApprovedSubject&quot;))" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_TimeNotApprovedBody">
+              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;TimeNotApprovedBody&quot;))" />
+            </InArgument>
           </ui:InvokeWorkflowFile.Arguments>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -500,7 +536,7 @@
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                 </ActivityAction.Argument>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot; Error in summary report &quot;+exception.Message]" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot; Error in summary report &quot;+exception.Message]" />
               </ActivityAction>
             </Catch>
           </TryCatch.Catches>
