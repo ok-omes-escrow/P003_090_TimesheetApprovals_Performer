@@ -138,7 +138,7 @@
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This automation will assist HR team with sending reminder emails to the employees and their supervisor of the time they have not entered in Workday. Automation to login to Workday to pull the list of employees who have not entered their time for the previous week and send out mass reminder email to all the employees excluding executive level &amp; Contractors" DisplayName="Process" sap:VirtualizedContainerService.HintSize="3076,2977" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This automation will assist HR team with sending reminder emails to the employees and their supervisor of the time they have not entered in Workday. Automation to login to Workday to pull the list of employees who have not entered their time for the previous week and send out mass reminder email to all the employees excluding executive level &amp; Contractors" DisplayName="Process" sap:VirtualizedContainerService.HintSize="1526,2988" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strInputFilePath" />
       <Variable x:TypeArguments="x:String" Name="strRequestType" />
@@ -242,57 +242,23 @@
         </sap:WorkflowViewStateService.ViewState>
         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will create weekly report for no time reported employees" DisplayName="No Time Reported Report Creation" sap:VirtualizedContainerService.HintSize="438,187" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Process\WeeklyReports\CreateWeeklyNoTimeReportedReport.xaml">
           <ui:InvokeWorkflowFile.Arguments>
-            <InArgument x:TypeArguments="x:String" x:Key="in_StrReportPath">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strInputFilePath" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_StrReportSheetName">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strSheetName" />
-            </InArgument>
-            <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_NoTimeReported">
-              <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_NoTimeReported" />
-            </OutArgument>
-            <OutArgument x:TypeArguments="x:Boolean" x:Key="out_boolNoData">
-              <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="boolNoDataNoTimeReport" />
-            </OutArgument>
-            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">
-              <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_AgencyCode">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;AgencyCode&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_PayrollEmails">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;EmailCC&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_OutgoingEmailCC">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;OutgoingEmailCC&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:Boolean" x:Key="in_EmailBCC">
-              <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="convert.ToBoolean(in_TransactionItem.SpecificContent(&quot;BCC&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:Boolean" x:Key="in_Attachment">
-              <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="convert.ToBoolean(in_TransactionItem.SpecificContent(&quot;Attachment&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_ExclusionUser">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;ExclusionUser&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_ExclusionSupervisor">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;ExclusionSupervisor&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:Boolean" x:Key="in_SplitNoTime">
-              <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="convert.ToBoolean(in_TransactionItem.SpecificContent(&quot;SplitNoTime&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_NoTimeUserSubject">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;NoTimeUserSubject&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_NoTimeSupervisorSubject">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;NoTimeSupervisorSubject&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_NoTimeUserBody">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;NoTimeUserBody&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_NoTimeSupervisorBody">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;NoTimeSupervisorBody&quot;))" />
-            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_StrReportPath">[strInputFilePath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_StrReportSheetName">[strSheetName]</InArgument>
+            <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_NoTimeReported">[dt_NoTimeReported]</OutArgument>
+            <OutArgument x:TypeArguments="x:Boolean" x:Key="out_boolNoData">[boolNoDataNoTimeReport]</OutArgument>
+            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[in_Config]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_AgencyCode">[cstr(in_TransactionItem.SpecificContent("AgencyCode"))]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_PayrollEmails">[cstr(in_TransactionItem.SpecificContent("EmailCC"))]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_OutgoingEmailCC">[cstr(in_TransactionItem.SpecificContent("OutgoingEmailCC"))]</InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_EmailBCC">[convert.ToBoolean(in_TransactionItem.SpecificContent("BCC"))]</InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_Attachment">[convert.ToBoolean(in_TransactionItem.SpecificContent("Attachment"))]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_ExclusionUser">[cstr(in_TransactionItem.SpecificContent("ExclusionUser"))]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_ExclusionSupervisor">[cstr(in_TransactionItem.SpecificContent("ExclusionSupervisor"))]</InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_SplitNoTime">[convert.ToBoolean(in_TransactionItem.SpecificContent("SplitNoTime"))]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_NoTimeUserSubject">[cstr(in_TransactionItem.SpecificContent("NoTimeUserSubject"))]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_NoTimeSupervisorSubject">[cstr(in_TransactionItem.SpecificContent("NoTimeSupervisorSubject"))]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_NoTimeUserBody">[cstr(in_TransactionItem.SpecificContent("NoTimeUserBody"))]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_NoTimeSupervisorBody">[cstr(in_TransactionItem.SpecificContent("NoTimeSupervisorBody"))]</InArgument>
           </ui:InvokeWorkflowFile.Arguments>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -344,67 +310,33 @@
           </TryCatch.Catches>
         </TryCatch>
       </Sequence>
-      <Sequence x:Key="NotSubmitted" sap2010:Annotation.AnnotationText="This will process not submitted flow." DisplayName="Not Submitted" sap:VirtualizedContainerService.HintSize="416,56" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence x:Key="NotSubmitted" sap2010:Annotation.AnnotationText="This will process not submitted flow." DisplayName="Not Submitted" sap:VirtualizedContainerService.HintSize="472,684" sap2010:WorkflowViewState.IdRef="Sequence_3">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will creates weekly report for not submitted employees" DisplayName="Not Submitted Report Creation" sap:VirtualizedContainerService.HintSize="438,187" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Process\WeeklyReports\CreateWeeklyNotSubmittedReport.xaml">
           <ui:InvokeWorkflowFile.Arguments>
-            <InArgument x:TypeArguments="x:String" x:Key="in_StrReportPath">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strInputFilePath" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_StrReportSheetName">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strSheetName" />
-            </InArgument>
-            <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_Output">
-              <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_NotSubmitted" />
-            </OutArgument>
-            <OutArgument x:TypeArguments="x:Boolean" x:Key="out_boolNoData">
-              <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="boolNoDataNotSubmitted" />
-            </OutArgument>
-            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">
-              <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_AgencyCode">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;AgencyCode&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_PayrollEmails">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;EmailCC&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_OutgoingEmailCC">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;OutgoingEmailCC&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:Boolean" x:Key="in_attachment">
-              <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="convert.ToBoolean(in_TransactionItem.SpecificContent(&quot;Attachment&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:Boolean" x:Key="in_emailbcc">
-              <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="convert.ToBoolean(in_TransactionItem.SpecificContent(&quot;BCC&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_exclusionUser">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;ExclusionUser&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_exclusionSupervisor">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;ExclusionSupervisor&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_NotSubmittedUserSubject">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;NotSubmittedUserSubject&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_NotSubmittedUserBody">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;NotSubmittedUserBody&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_NotSubmittedSupervisorBody">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;NotSubmittedSupervisorBody&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_NotSubmittedSupervisorSubject">
-              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="cstr(in_TransactionItem.SpecificContent(&quot;NotSubmittedSupervisorSubject&quot;))" />
-            </InArgument>
-            <InArgument x:TypeArguments="x:Boolean" x:Key="in_SplitNotSubmitted">
-              <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="convert.ToBoolean(in_TransactionItem.SpecificContent(&quot;SplitNotSubmitted&quot;))" />
-            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_StrReportPath">[strInputFilePath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_StrReportSheetName">[strSheetName]</InArgument>
+            <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_Output">[dt_NotSubmitted]</OutArgument>
+            <OutArgument x:TypeArguments="x:Boolean" x:Key="out_boolNoData">[boolNoDataNotSubmitted]</OutArgument>
+            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[in_Config]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_AgencyCode">[cstr(in_TransactionItem.SpecificContent("AgencyCode"))]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_PayrollEmails">[cstr(in_TransactionItem.SpecificContent("EmailCC"))]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_OutgoingEmailCC">[cstr(in_TransactionItem.SpecificContent("OutgoingEmailCC"))]</InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_attachment">[convert.ToBoolean(in_TransactionItem.SpecificContent("Attachment"))]</InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_emailbcc">[convert.ToBoolean(in_TransactionItem.SpecificContent("BCC"))]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_exclusionUser">[cstr(in_TransactionItem.SpecificContent("ExclusionUser"))]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_exclusionSupervisor">[cstr(in_TransactionItem.SpecificContent("ExclusionSupervisor"))]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_NotSubmittedUserSubject">[cstr(in_TransactionItem.SpecificContent("NotSubmittedUserSubject"))]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_NotSubmittedUserBody">[cstr(in_TransactionItem.SpecificContent("NotSubmittedUserBody"))]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_NotSubmittedSupervisorBody">[cstr(in_TransactionItem.SpecificContent("NotSubmittedSupervisorBody"))]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_NotSubmittedSupervisorSubject">[cstr(in_TransactionItem.SpecificContent("NotSubmittedSupervisorSubject"))]</InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_SplitNotSubmitted">[convert.ToBoolean(in_TransactionItem.SpecificContent("SplitNotSubmitted"))]</InArgument>
           </ui:InvokeWorkflowFile.Arguments>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">

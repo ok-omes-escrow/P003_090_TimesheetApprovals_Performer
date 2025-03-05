@@ -135,7 +135,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml works on No time reported weekly mails&#xA;" DisplayName="Sequence No Time Reported Report Creation And Sending Reminders" sap:VirtualizedContainerService.HintSize="3064,13636" sap2010:WorkflowViewState.IdRef="Sequence_12">
+  <Sequence sap2010:Annotation.AnnotationText="Description: This xaml works on No time reported weekly mails&#xA;" DisplayName="Sequence No Time Reported Report Creation And Sending Reminders" sap:VirtualizedContainerService.HintSize="1526,13636" sap2010:WorkflowViewState.IdRef="Sequence_12">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -747,7 +747,7 @@
                                   <OutArgument x:TypeArguments="s:String[]">[strBCCEmail]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="s:String[]">[strToEmail.Split(";")]</InArgument>
+                                  <InArgument x:TypeArguments="s:String[]">[(strToEmail+";"+ in_OutgoingEmailCC).Split(";")]</InArgument>
                                 </Assign.Value>
                               </Assign>
                             </Sequence>
@@ -764,7 +764,7 @@
                                   <OutArgument x:TypeArguments="s:String[]">[strToAddress]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="s:String[]">[strToEmail.Split(";")]</InArgument>
+                                  <InArgument x:TypeArguments="s:String[]">[(strToEmail+";"+ in_OutgoingEmailCC).Split(";")]</InArgument>
                                 </Assign.Value>
                               </Assign>
                             </Sequence>
@@ -922,7 +922,7 @@
                                   <OutArgument x:TypeArguments="s:String[]">[strBCCEmail]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="s:String[]">[strToEmail.Split(";")]</InArgument>
+                                  <InArgument x:TypeArguments="s:String[]">[(strToEmail+";"+ in_OutgoingEmailCC).Split(";")]</InArgument>
                                 </Assign.Value>
                               </Assign>
                             </Sequence>
@@ -939,7 +939,7 @@
                                   <OutArgument x:TypeArguments="s:String[]">[strToAddress]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="s:String[]">[strToEmail.Split(";")]</InArgument>
+                                  <InArgument x:TypeArguments="s:String[]">[(strToEmail+";"+ in_OutgoingEmailCC).Split(";")]</InArgument>
                                 </Assign.Value>
                               </Assign>
                             </Sequence>
@@ -947,26 +947,14 @@
                         </If>
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will send no time reported reminder email" DisplayName="Send Mail No Time Reported Weekly Reminder" sap:VirtualizedContainerService.HintSize="502,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Process\Send Email\SendMail.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="s:String[]" x:Key="in_StrToAddress">
-                              <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="strToAddress" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="s:String[]" x:Key="in_StrToAddress">[strToAddress]</InArgument>
                             <InArgument x:TypeArguments="s:String[]" x:Key="in_StrCcAddress" />
-                            <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">
-                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailSubject" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">
-                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailBody" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_StrAccount">
-                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="CStr(in_dicConfig(&quot;P003_090_TimesheetApprovals_MailAccount&quot;))" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">[strMailSubject]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">[strMailBody]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_StrAccount">[CStr(in_dicConfig("P003_090_TimesheetApprovals_MailAccount"))]</InArgument>
                             <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListAttachmentPath" />
-                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">
-                              <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_dicConfig" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="s:String[]" x:Key="in_BCCEmails">
-                              <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="strBCCEmail" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[in_dicConfig]</InArgument>
+                            <InArgument x:TypeArguments="s:String[]" x:Key="in_BCCEmails">[strBCCEmail]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1127,24 +1115,12 @@
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="This will send no time reported reminder email" DisplayName="Send Mail No Time Reported Weekly Reminder" sap:VirtualizedContainerService.HintSize="502,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="Process\Send Email\SendMail.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="s:String[]" x:Key="in_StrToAddress" />
-                            <InArgument x:TypeArguments="s:String[]" x:Key="in_StrCcAddress">
-                              <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="strCcEmail.Split(&quot;;&quot;)" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">
-                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailSubject" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">
-                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailBody" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_StrAccount">
-                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="CStr(in_dicConfig(&quot;P003_090_TimesheetApprovals_MailAccount&quot;))" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListAttachmentPath">
-                              <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="attchmentArray" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">
-                              <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_dicConfig" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="s:String[]" x:Key="in_StrCcAddress">[strCcEmail.Split(";")]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">[strMailSubject]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">[strMailBody]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_StrAccount">[CStr(in_dicConfig("P003_090_TimesheetApprovals_MailAccount"))]</InArgument>
+                            <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_ListAttachmentPath">[attchmentArray]</InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_dicConfig">[in_dicConfig]</InArgument>
                             <InArgument x:TypeArguments="s:String[]" x:Key="in_BCCEmails" />
                           </ui:InvokeWorkflowFile.Arguments>
                           <sap:WorkflowViewStateService.ViewState>

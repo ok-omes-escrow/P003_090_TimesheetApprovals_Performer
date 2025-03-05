@@ -259,6 +259,7 @@
       "Path": "Process/WeeklyReports/CreateWeeklyNotApprovedReport.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "dt_OutPutDataExcelFiltered&Sequence_1",
         "strArryExclusionSupervisor&Sequence_6",
         "strArryExclusionUser&Sequence_6",
         "strToAddress&Sequence_7",
@@ -277,6 +278,8 @@
         "strAwaitingEmail&Sequence_6"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_TimeNotApprovedSubject",
+        "in_TimeNotApprovedBody",
         "in_ExclusionSupervisor",
         "in_ExclusionUser",
         "in_EmailBCC",
@@ -326,6 +329,14 @@
       "Path": "Process/WeeklyReports/CreateWeeklyNotSubmittedReport.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "idx&Sequence_1",
+        "ColumnList&Sequence_1",
+        "dt_OutputDataExcelFiltered&Sequence_1",
+        "strNotSubmittedUserSubject&Sequence_11",
+        "strNotSubmittedUserBody&Sequence_11",
+        "strNotSubmittedSupervisorSubject&Sequence_11",
+        "strNotSubmittedSupervisorBody&Sequence_11",
+        "SplitNotSubmitted&Sequence_11",
         "strArryExclusionSupervisor&Sequence_11",
         "strArryExclusionUser&Sequence_11",
         "attchmentArray&Sequence_12",
@@ -346,6 +357,11 @@
         "strOutputFilPath&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_NotSubmittedUserSubject",
+        "in_NotSubmittedUserBody",
+        "in_NotSubmittedSupervisorBody",
+        "in_NotSubmittedSupervisorSubject",
+        "in_SplitNotSubmitted",
         "in_StrReportPath",
         "in_StrReportSheetName",
         "out_dt_Output",
